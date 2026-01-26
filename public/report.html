@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="report.css" />
+    <title>Athletic Report</title>
+  </head>
+  <body>
+    <h1>Classification Report</h1>
+    <p>Date: <span id="printDate"></span></p>
+    <hr />
+    <h3>Athlete Information</h3>
+    <div><span id="resFlag"></span></div>
+    <ul>
+      <li><strong>Name:</strong><span id="resName"></span></li>
+      <li><strong>Date of Birth:</strong><span id="resDob"></span></li>
+      <li><strong>Team Name:</strong><span id="resTeam"></span></li>
+      <li><strong>Event Status:</strong><span id="resEvent"></span></li>
+      <li>
+        <strong>Date of Classification:</strong
+        ><span id="resDateClassification"></span>
+      </li>
+    </ul>
+    <h3>Medical Assessment</h3>
+    <ul>
+      <li>
+        <strong>Underlying Health Condition:</strong
+        ><span id="resCondition"></span>
+      </li>
+      <li><strong>Medical Evidence:</strong><span id="resEvidence"></span></li>
+      <li>
+        <strong>Missing Evidence:</strong><span id="resMissingEvidence"></span>
+      </li>
+      <li><strong>Impairment Type:</strong><span id="resImpType"></span></li>
+      <li>
+        <strong>Spesific Impairment:</strong><span id="resSpecific"></span>
+      </li>
+      <li><strong>Classifier Notes:</strong><span id="resNotes"></span></li>
+    </ul>
+
+    <h3>
+      Final Sport Class Decision:<strong><span id="resDecision"></span></strong>
+    </h3>
+
+    <button onclick="window.location.href = 'index.html'">Go Back&Edit</button>
+    <button onclick="window.print()">Print This Page</button>
+    <button onclick="startNewAssessment()">Start New Athlete</button>
+    <div id="startNewAthlete" hidden>
+      <p>
+        This will delete all current athlete data permanently. Are you sure you
+        want to proceed?
+      </p>
+      <div>
+        <button onclick="closeModal()">No,Cancel.</button>
+        <button onclick="confirmNewAthlete()">Yes,Clear it.</button>
+      </div>
+    </div>
+    <script src="report.js"></script>
+  </body>
+</html>

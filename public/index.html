@@ -1,0 +1,1733 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Classification</title>
+  </head>
+
+  <body class="bg-[#F3F4F6] p-4">
+    <div class="max-w-6xl mx-auto flex p-6 items-center">
+      <img src="logo/logopng.png" alt="Logo" class="h-14 w-auto" />
+
+      <header class="ml-auto text-right flex-col justify-center">
+        <h1
+          class="text-right text-md font-bold text-gray-400 uppercase tracking-widest"
+        >
+          Official Assessment System
+        </h1>
+        <p class="text-gray-500 font-xs">
+          Athlete Classification Tool <span class="text-[#00AEEF]">v1.0</span>
+        </p>
+      </header>
+    </div>
+
+    <main class="max-w-6xl mx-auto">
+      <div
+        class="bg-white shadow-2xl rounded-[3rem] p-8 md:p-16 border border-gray-100"
+      >
+        <div class="mb-8">
+          <h2
+            class="text-3xl font-bold tracking-tight border-l-4 border-[#F58220] pl-4 mb-2"
+          >
+            Athlete Information
+          </h2>
+          <p class="text-gray-500 text-sm">
+            Complete the details to begin the assessment.
+          </p>
+        </div>
+        <form novalidate>
+          <div
+            id="step-1"
+            class="form-step grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
+            <div class="left-column space-y-2">
+              <label
+                class="mb-2 font-bold block text-gray-500 text-sm"
+                for="family-name"
+                >Family Name</label
+              >
+              <input
+                class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                type="text"
+                aria-describedby="familyNameError"
+                id="family-name"
+                name="family-name"
+                placeholder="Doe"
+              />
+              <p id="familyNameError" class="text-red-500 text-xs hidden"></p>
+              <label
+                class="mb-2 font-bold block text-gray-500 text-sm block"
+                for="given-name"
+                >Given Name</label
+              >
+              <input
+                class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                type="text"
+                aria-describedby="givenNameError"
+                id="given-name"
+                name="given-name"
+                placeholder="John"
+              />
+              <p id="givenNameError" class="text-red-500 text-xs hidden"></p>
+              <label
+                class="mb-2 font-bold block text-gray-500 text-sm block"
+                for="date-of-birth"
+                >Date of Birth</label
+              >
+              <input
+                class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                type="date"
+                aria-describedby="dobError"
+                id="date-of-birth"
+                name="date-of-birth"
+                placeholder="01.01.1970"
+              />
+              <p id="dobError" class="text-red-500 text-xs hidden"></p>
+              <fieldset>
+                <legend
+                  class="mb-2 font-bold block text-gray-500 text-sm block"
+                >
+                  Event Status
+                </legend>
+                <div
+                  class="flex items-center rounded-2xl border-2 border-gray-100 p-2 hover:bg-[#F58220] cursor-pointer gap-4 mb-2"
+                >
+                  <input
+                    class="h-4 w-4"
+                    type="radio"
+                    id="new"
+                    name="event-status"
+                    value="new"
+                    checked
+                  />
+                  <label for="new">New</label>
+                </div>
+                <div
+                  class="flex items-center rounded-2xl border-2 border-gray-100 p-2 hover:bg-[#F58220] cursor-pointer gap-4 mb-2"
+                >
+                  <input
+                    class="h-4 w-4"
+                    name="event-status"
+                    type="radio"
+                    id="review"
+                    value="review"
+                  />
+                  <label for="review">Review</label>
+                </div>
+                <div
+                  class="flex items-center rounded-2xl border-2 border-gray-100 p-2 hover:bg-[#F58220] cursor-pointer gap-4 mb-2"
+                >
+                  <input
+                    class="h-4 w-4"
+                    name="event-status"
+                    type="radio"
+                    id="protest"
+                    value="protest"
+                  />
+                  <label for="protest">Protest</label>
+                </div>
+                <div
+                  class="flex items-center rounded-2xl border-2 border-gray-100 p-2 hover:bg-[#F58220] cursor-pointer gap-4 mb-2"
+                >
+                  <input
+                    class="h-4 w-4"
+                    name="event-status"
+                    type="radio"
+                    id="appeal"
+                    value="appeal"
+                  />
+                  <label for="appeal">Appeal</label>
+                </div>
+                <div
+                  class="flex items-center rounded-2xl border-2 border-gray-100 p-2 hover:bg-[#F58220] cursor-pointer gap-4 mb-2"
+                >
+                  <input
+                    class="h-4 w-4"
+                    name="event-status"
+                    type="radio"
+                    id="fixed-review"
+                    value="fixed-review"
+                  />
+                  <label for="fixed-review">Fixed Review</label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="right-column space-y-2">
+              <div
+                id="flag-container"
+                class="space-y-6 w-full h-64 rounded-2xl shadow-lg"
+              >
+                <div
+                  id="flagBox"
+                  class="w-full h-full rounded-2xl flex items-center justify-center"
+                >
+                  <span id="flag">Flag</span>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label
+                  class="mb-2 font-bold block text-gray-500 text-sm block"
+                  for="team-name"
+                  >Team Name</label
+                >
+                <select
+                  class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                  id="team-name"
+                >
+                  <option value="">Loading countries...</option>
+                </select>
+              </div>
+
+              <div class="space-y-2">
+                <label
+                  class="mb-2 font-bold block text-gray-500 text-sm block"
+                  for="event-name"
+                  >Event Name</label
+                >
+                <input
+                  class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                  type="text"
+                  aria-describedby="eventNameError"
+                  id="event-name"
+                  name="event-name"
+                />
+                <p id="eventNameError" class="text-red-500 text-xs hidden"></p>
+              </div>
+              <div>
+                <label
+                  class="mb-2 font-bold block text-gray-500 text-sm block"
+                  for="date-of-classification"
+                  >Date of Classification</label
+                >
+                <input
+                  class="w-full p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                  type="date"
+                  id="date-of-classification"
+                  name="date-of-classification"
+                  aria-describedby="dateOfClassificationError"
+                />
+                <p
+                  id="dateOfClassificationError"
+                  class="text-red-500 text-xs hidden"
+                ></p>
+              </div>
+            </div>
+
+            <button
+              class="bg-[#F58220] mt-6 mb-6 p-6 rounded-4xl text-white font-bold hover:bg-[#D96F1C] w-full block md:col-span-2 mt-4"
+              id="proceedStep1Button"
+              aria-label="Proceed to Assessment"
+              disabled
+              type="button"
+            >
+              Proceed to Assessment
+            </button>
+          </div>
+          <div id="step-2" class="form-step" style="display: none">
+            <label for="underlyingHealthCondition"
+              >Underlying Health Condition</label
+            >
+            <input
+              type="text"
+              id="underlyingHealthCondition"
+              aria-describedby="uhcError"
+            />
+            <p id="uhcError" class="input-error hidden"></p>
+            <label for="supportiveEvidence"
+              >Supportive Medical Evidence Provided
+            </label>
+            <input
+              type="text"
+              id="supportiveEvidence"
+              aria-describedby="supEvidError"
+            />
+            <p id="supEvidError" class="input-error hidden"></p>
+            <label for="missingDoc"> Missing medical evidence</label>
+
+            <input
+              type="text"
+              id="missingDoc"
+              aria-describedby="missingDocError"
+            />
+            <p id="missingDocError" class="input-error hidden"></p>
+            <h3>Impairment Type</h3>
+            <label for="impairment-type">Select Impairment Type</label>
+            <select name="impairment-type" id="impairment-type">
+              <option value="0">Select Impairment Type</option>
+              <option id="amputation-dismelia" value="AmputationDismelia">
+                Amputation-Dismelia
+              </option>
+              <option id="leg-length-difference" value="LegLengthDifference">
+                Leg Length Difference
+              </option>
+              <option id="impaired-muscle-power" value="ImpairedMusclePower">
+                Impaired Muscle Power
+              </option>
+              <option id="impaired-passive-rom" value="ImpairedPassiveROM">
+                Impaired Passive ROM
+              </option>
+              <option
+                id="spasticity-athetosis-ataxia"
+                value="SpasticityAthetosisAtaxia"
+              >
+                Spasticity/athetosis/ataxia
+              </option>
+            </select>
+
+            <label for="spesificImpairment">Select Spesific Impairment</label>
+            <select id="spesificImpairment" name="spesific-impairment">
+              <option value="0">Select Spesific Impairment</option>
+            </select>
+            <button
+              id="viewLogicBtn"
+              disabled
+              type="button"
+              onclick="nextStep2()"
+            >
+              View Classification Logic
+            </button>
+            <button type="button" onclick="prevStep(1)">
+              Back to Personal Info
+            </button>
+
+            <section
+              data-section="amputationOneUpperLimb"
+              id="amputationOneUpperLimb"
+              class="result-section"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    All five digits (4 fingers and a thumb) at MCP joints on one
+                    hand or more proximal amputation
+                  </p>
+                </div>
+
+                <div class="card" cardValue="vs2">
+                  <p>
+                    Any four digits1 on one hand at MCP joints; or Thumb and 2
+                    adjacent fingers on one hand
+                  </p>
+                </div>
+
+                <div class="card" cardValue="ne">
+                  <p>Amputation of partial digits (phalanges)</p>
+                </div>
+              </div>
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+
+            <section
+              id="amputationBothUpperLimb"
+              class="result-section"
+              data-section="amputationBothUpperLimb"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    Eight digits across both hands; or first three digits across
+                    both hands.
+                  </p>
+                </div>
+                <div class="card" cardValue="vs2">
+                  <p>
+                    Thumbs both hands; or index and long fingers both hands.
+                  </p>
+                </div>
+                <div class="card" cardValue="ne">Not Eligible</div>
+              </div>
+
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+            <section
+              data-section="amputationLowerLimb"
+              id="amputationLowerLimb"
+              class="result-section"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    Through-ankle (no calcaneum) or more proximal amputation
+                  </p>
+                </div>
+                <div class="card" cardValue="vs2">
+                  Chopart or Lisfranc (one or both sides)
+                </div>
+                <div class="card" cardValue="ne">Not Eligible</div>
+              </div>
+              <textarea class="classifierNotes" placeholder="Classifier Notes">
+              </textarea>
+            </section>
+            <section
+              data-section="amputationUpperLowerLimb"
+              id="amputationUpperLowerLimb"
+              class="result-section"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    Combination of amputations in upper and/or lower limbs –
+                    class is determined by most severe impairment.
+                  </p>
+                </div>
+                <div class="card" cardValue="vs2">
+                  <p>
+                    Combination of amputations in upper and/or lower limbs
+                    –class determined by their most severe impairment.
+                  </p>
+                </div>
+              </div>
+              <textarea class="classifierNotes" placeholder="Classifier Notes">
+              </textarea>
+            </section>
+            <section
+              data-section="dismeliaUpperLimb"
+              id="dismeliaUpperLimb"
+              class="result-section"
+            >
+              <p>
+                Please enter the length of affected and unaffected arms acromion
+                to most distal point!
+              </p>
+              <label for="unaffectedArm">Unaffected side</label>
+              <input type="number" id="unaffectedArm" name="unaffectedArm" />
+              <label for="affectedArm">Affected side</label>
+              <input type="number" id="affectedArm" name="affectedArm" />
+              <button id="calcDismeliaBtn">Calculate Length Difference</button>
+              <p class="calculation-result"></p>
+              <textarea class="classifierNotes" placeholder="Classifier Notes">
+              </textarea>
+            </section>
+            <section
+              data-section="shorteningLowerLimb"
+              id="shorteningLowerLimb"
+              class="result-section"
+            >
+              <p>
+                Please enter the length of affected and unaffected limbs ASIS to
+                most distal point!
+              </p>
+              <label for="unaffectedLimb">Unaffected side</label>
+              <input type="number" id="unaffectedLimb" name="unaffectedLimb" />
+              <label for="affectedLimb">Affected side</label>
+              <input type="number" id="affectedLimb" name="affectedLimb" />
+              <button type="button" id="calcShorteningLowerLimbBtn">
+                Calculate Length Difference
+              </button>
+              <p class="calculation-result-shortlimb"></p>
+              <textarea class="classifierNotes" placeholder="Classifier Notes">
+              </textarea>
+            </section>
+            <section id="lossMpOneUpperLimb" class="result-section">
+              <h4>
+                Recording Rules regarding PROM: No Deduction: If PROM is normal
+                or the limitation is insignificant, grades 1–2 must be recorded
+                as 0. Deduction Required: If PROM limitation reduces muscle
+                function, calculate the deduction manually and record the
+                adjusted score.
+              </h4>
+              <table>
+                <thead>
+                  <tr>
+                    <th rowspan="2">Upper Limbs</th>
+                    <th rowspan="2">Movements</th>
+                    <th colspan="2">Strength</th>
+                    <th colspan="2">PROM</th>
+                  </tr>
+                  <tr class="second-row">
+                    <td>Left</td>
+                    <td>Rigth</td>
+                    <td>Left</td>
+                    <td>Right</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="4">Shoulder</td>
+                    <td>Flexion</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderFlexion_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderFlexion_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderFlexion_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderFlexion_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Extension</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderExtension_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderExtension_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderExtension_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderExtension_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Abduction</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderAbduction_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderAbduction_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderAbduction_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderAbduction_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Adduction</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderAdduction_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderAdduction_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderAdduction_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="shoulderAdduction_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">Elbow</td>
+                    <td>Flexion</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="elbowFlexion_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="elbowFlexion_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="elbowFlexion_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="elbowFlexion_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Extension</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="elbowExtension_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="elbowExtension_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="elbowExtension_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="elbowExtension_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">ForeArm</td>
+                    <td>Supination</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="foreArmSupination_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+
+                    <td>
+                      <input
+                        type="number"
+                        name="foreArmSupination_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="foreArmSupination_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="foreArmSupination_prom_R"
+                        class="input-box"
+                      /><button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Pronation</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="foreArmPronation_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="foreArmPronation_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="foreArmPronation_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="foreArmPronation_prom_R"
+                        class="input-box"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">Wrist</td>
+                    <td>Dorsiflexion</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="wristDorsiflexion_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="wristDorsiflexion_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="wristDorsiflexion_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="wristDorsiflexion_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Volarflexion</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="wristVolarflexion_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="wristVolarflexion_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="wristVolarflexion_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="wristVolarflexion_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">Finger2-5</td>
+                    <td>Flexion</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="fingersFlexion_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="fingersFlexion_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Extension</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="fingersExtension_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="fingersExtension_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">Thumb</td>
+                    <td>Opposition</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="thumbOpposition_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="thumbOpposition_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Extension</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="thumbExtension_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="thumbExtension_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button id="calculateUpperLimbLossMusclePowerPointsBtn">
+                Calculate Upper Limb Loss of Muscle Power Points
+              </button>
+              <div
+                class="optionUpperLimbMPLossCards"
+                id="optionUpperLimbMPLossCards"
+              >
+                <div class="UpperLimbMPLossCard hidden" cardValue="vs1">
+                  <p>
+                    <strong>Sport Class VS1:</strong> Total loss of 25 or more
+                    muscle points
+                  </p>
+                </div>
+
+                <div class="UpperLimbMPLossCard hidden" cardValue="vs2">
+                  <p>
+                    <strong>Sport Class VS2:</strong> Total loss of 15-24 muscle
+                    points
+                  </p>
+                </div>
+
+                <div class="UpperLimbMPLossCard hidden" cardValue="ne">
+                  <p>
+                    <strong>Not Eligible (NE):</strong> Total loss of muscle
+                    power is less than 15 points
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section id="lossMpOneOrBothLowerLimb" class="result-section">
+              <h4>
+                Recording Rules regarding PROM: No Deduction: If PROM is normal
+                or the limitation is insignificant, grades 1–2 must be recorded
+                as 0. Deduction Required: If PROM limitation reduces muscle
+                function, calculate the deduction manually and record the
+                adjusted score.
+              </h4>
+              <table>
+                <thead>
+                  <tr>
+                    <th rowspan="2">Lower Limbs</th>
+                    <th rowspan="2">Movements</th>
+                    <th colspan="2">Strength</th>
+                    <th colspan="2">PROM</th>
+                  </tr>
+                  <tr class="second-row">
+                    <td>Left</td>
+                    <td>Rigth</td>
+                    <td>Left</td>
+                    <td>Right</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="4">Hip</td>
+                    <td>Flexion</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipFlexion_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipFlexion_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipFlexion_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipFlexion_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Extension</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipExtension_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipExtension_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipExtension_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipExtension_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Abduction</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipAbduction_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipAbduction_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipAbduction_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipAbduction_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Adduction</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipAdduction_str_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="input-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipAdduction_str_R"
+                        class="input-box"
+                      />
+                      <p class="prom-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipAdduction_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="hipAdduction_prom_R"
+                        class="input-box"
+                      />
+                      <p class="prom-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">Knee</td>
+                    <td>Flexion</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="kneeFlexion_str_L"
+                        class="input-box"
+                      />
+                      <p class="prom-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="kneeFlexion_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="kneeFlexion_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="kneeFlexion_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Extension</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="kneeExtension_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="kneeExtension_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="kneeExtension_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="kneeExtension_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">Ankle</td>
+                    <td>Dorsiflexion</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="ankleDorsiflexion_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="ankleDorsiflexion_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="ankleDorsiflexion_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="ankleDorsiflexion_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Plantarflexion</td>
+                    <td>
+                      <input
+                        type="number"
+                        name="anklePlantarflexion_str_L"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="anklePlantarflexion_str_R"
+                        class="input-box"
+                      />
+                      <p class="input-error hidden"></p>
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="anklePlantarflexion_prom_L"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="anklePlantarflexion_prom_R"
+                        class="input-box"
+                      />
+                      <button type="button" class="prom-warning" hidden>
+                        ⚠
+                      </button>
+                      <p class="prom-error hidden"></p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button id="calculateLowerLimbLossMusclePowerPointsBtn">
+                Calculate Loss of Muscle Power Points
+              </button>
+              <div
+                class="optionMPLLowerLimbLossCards"
+                id="optionMPLLowerLimbLossCards"
+              >
+                <div class="MPLossCard hidden" cardValue="vs1">
+                  <p>
+                    <strong>Sport Class VS1:</strong> Combined total loss of 16
+                    or more muscle points in both lower limbs
+                  </p>
+                </div>
+
+                <div class="MPLossCard hidden" cardValue="vs2">
+                  <p>
+                    <strong>Sport Class VS2:</strong> Combined loss of 7 to 15
+                    muscle points in both lower limbs
+                  </p>
+                </div>
+
+                <div class="MPLossCard hidden" cardValue="ne">
+                  <p>
+                    <strong>Not Eligible (NE):</strong> Combined loss of muscle
+                    power is less than 7 points in lower limbs
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section
+              id="promShoulder"
+              class="result-section"
+              data-section="promShoulder"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    <strong>VS1</strong>
+                    Abduction and/or flexion not more than 90 degrees both sides
+                  </p>
+                </div>
+
+                <div class="card" cardValue="vs2">
+                  <p>
+                    <strong>VS2</strong>
+                    Abduction and/or flexion not more than 90 degrees one side.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="ne">
+                  <p>
+                    <strong>Not Eligible</strong>More than 90 degrees abduction
+                    and/or flexion
+                  </p>
+                </div>
+              </div>
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+            <section
+              id="promElbowOneSide"
+              class="result-section"
+              data-section="promElbowOneSide"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    <strong>VS1</strong>Elbow extension deficit of 90 degrees or
+                    more.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="vs2">
+                  <p>
+                    <strong>VS2</strong>Elbow extension deficit of 45- 89
+                    degrees.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="ne">
+                  <p>
+                    <strong>Not Eligible</strong>Elbow extension deficit of less
+                    than 45 degrees
+                  </p>
+                </div>
+              </div>
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+            <section
+              id="promWristOneSide"
+              class="result-section"
+              data-section="promWristOneSide"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    <strong>VS1</strong>
+                    Stiff in position below 0 degrees (hand in line with
+                    forearm) to full flexion.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="vs2">
+                  <p>
+                    <strong>VS2</strong>
+                    Stiff in position between 0 degrees (hand in line with
+                    forearm) to full extension.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="ne">
+                  <p>
+                    <strong>Not Eligible</strong>
+                    ROM of the wrist >5 degrees arc of motion (not ankylosed).
+                  </p>
+                </div>
+              </div>
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+            <section
+              id="promFingers"
+              class="result-section"
+              data-section="promFingers"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    <strong>VS1</strong>Afunctional both hands (e.g.postburn
+                    contractures).
+                  </p>
+                </div>
+
+                <div class="card" cardValue="vs2">
+                  <p><strong>VS2</strong>Afunctional one hand.</p>
+                </div>
+
+                <div class="card" cardValue="ne">
+                  <p><strong>Not Eligible</strong></p>
+                </div>
+              </div>
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+            <section id="promHip" class="result-section" data-section="promHip">
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p><strong>VS1</strong>Stiff in any position.</p>
+                </div>
+
+                <div class="card" cardValue="vs2">
+                  <p>
+                    <strong>VS2</strong>Not more than 90 degrees of flexion.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="ne">
+                  <p>
+                    <strong>Not Eligible</strong>More than 90 degrees of
+                    flexion.
+                  </p>
+                </div>
+              </div>
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+            <section
+              id="promKneeOneSide"
+              class="result-section"
+              data-section="promKneeOneSide"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    <strong>VS1</strong>
+                    Knee flexion is 45 degrees or less measured from full
+                    extension; or stiff knee in any position.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="vs2">
+                  <p>
+                    <strong>VS2</strong>
+                    Knee flexion is between 46-90 degrees measured from full
+                    extension.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="ne">
+                  <p>
+                    <strong>Not Eligible</strong> than 90 degrees of knee
+                    flexion.
+                  </p>
+                </div>
+              </div>
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+            <section
+              id="promAnkle"
+              class="result-section"
+              data-section="promAnkle"
+            >
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p><strong>VS1</strong></p>
+                </div>
+
+                <div class="card" cardValue="vs2">
+                  <p>
+                    <strong>VS2</strong>
+                    Ankle is ankylosed in any position.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="ne">
+                  <p>
+                    <strong>Not Eligible</strong> passive ROM in ankle joint.
+                  </p>
+                </div>
+              </div>
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+            <section id="CpIsra" class="result-section" data-section="CpIsra">
+              <p>Choose which card is most suitable for your athlete?</p>
+              <div class="optionCards">
+                <div class="card" cardValue="vs1">
+                  <p>
+                    <strong>VS1</strong>
+                    Class 7 or lower:Athletes are hemiplegic and noticeable limp
+                    is often noticed. The dominant upper limb should have normal
+                    strength and movement. The affected upper limb is usually
+                    more apparent during activity, flat footed on affected side
+                    when running, often tilts head to one side during exertion.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="vs2">
+                  <p>
+                    <strong>VS2</strong>
+                    Class 8:Athletes are minimally affected diplegic,
+                    hemiplegic, and monoplegic or have minimal movement control
+                    patterns. They will run without noticeable limp but
+                    disability will be more evident on exertion, however the
+                    athlete must demonstrate evidence of a functional disability
+                    during testing. Players with minimal involvement may appear
+                    to have near normal function when running but the player
+                    must demonstrate a limitation in function to classifiers
+                    based on evidence of spasticity (increased tone), ataxic,
+                    athetoid or dystonic movements while performing on the field
+                    of play. Some players with an acquired brain injury, the
+                    dominant side may be the impaired side.
+                  </p>
+                </div>
+
+                <div class="card" cardValue="ne">
+                  <p><strong>Not Eligible</strong></p>
+                </div>
+              </div>
+              <textarea
+                class="classifierNotes"
+                placeholder="Classifier Notes"
+              ></textarea>
+            </section>
+            <div id="summaryError"></div>
+            <button
+              disabled
+              id="btnCompleted"
+              type="button"
+              hidden
+              onclick="nextStep3()"
+            >
+              Classification completed
+            </button>
+          </div>
+          <div id="step-3" class="form-step" style="display: none">
+            <h3>Summary of the classification</h3>
+
+            <div class="summary-card">
+              <h5>Personal Information</h5>
+              <p>Name: <span id="resName"></span></p>
+              <p>DOB: <span id="resDob"></span></p>
+              <p>Team: <span id="resTeam"></span></p>
+              <p>Event: <span id="resEvent"></span></p>
+              <p>
+                Date of Classification: <span id="resDateClassification"></span>
+              </p>
+            </div>
+
+            <div class="summary-card">
+              <h5>Assessment Details</h5>
+              <p>Condition: <span id="resCondition"></span></p>
+              <p>Medical Evidence: <span id="resEvidence"></span></p>
+              <p>Missing Evidence: <span id="resMissingEvidence"></span></p>
+              <p>Impairment Type: <span id="resImpType"></span></p>
+              <p>Specific: <span id="resSpecific"></span></p>
+              <p>Notes: <span id="resNotes"></span></p>
+              <h4 class="decision">Decision: <span id="resDecision"></span></h4>
+            </div>
+            <button type="button" onclick="prevStep(2)">
+              Edit Assessment (Back)
+            </button>
+            <button type="submit" onclick="finalize(event)">
+              Save and Finalize the Classification
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
