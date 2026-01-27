@@ -27,21 +27,21 @@
       <div
         class="bg-white shadow-2xl rounded-[3rem] p-8 md:p-16 border border-gray-100"
       >
-        <div class="mb-8">
-          <h2
-            class="text-3xl font-bold tracking-tight border-l-4 border-[#F58220] pl-4 mb-2"
-          >
-            Athlete Information
-          </h2>
-          <p class="text-gray-500 text-sm">
-            Complete the details to begin the assessment.
-          </p>
-        </div>
         <form novalidate>
           <div
             id="step-1"
             class="form-step grid grid-cols-1 md:grid-cols-2 gap-8"
           >
+            <div class="mb-8 col-span-1 md:col-span-2">
+              <h2
+                class="text-3xl font-bold tracking-tight border-l-4 border-[#F58220] pl-4 mb-2"
+              >
+                Athlete Information
+              </h2>
+              <p class="text-gray-500 text-sm">
+                Complete the details to begin the assessment.
+              </p>
+            </div>
             <div class="left-column space-y-2">
               <label
                 class="mb-2 font-bold block text-gray-500 text-sm"
@@ -229,7 +229,7 @@
           <div id="step-2" class="form-step" style="display: none">
             <div class="mb-8">
               <h2
-                class="text-3xl font-bold tracking-tight border-l-4 border-[#F58220] pl-4 mb-2"
+                class="text-3xl tracking-tight font-bold border-l-4 border-[#F58220] pl-4 mb-2"
               >
                 Medical Information
               </h2>
@@ -239,7 +239,7 @@
               </p>
             </div>
             <label
-              class="mb-2 font-bold block text-gray-500 text-sm block"
+              class="mt-2 mb-2 font-bold text-gray-500 text-sm block"
               for="underlyingHealthCondition"
               >Underlying Health Condition</label
             >
@@ -251,7 +251,7 @@
             />
             <p id="uhcError" class="input-error hidden"></p>
             <label
-              class="mb-2 font-bold block text-gray-500 text-sm block"
+              class="mt-2 mb-2 font-bold text-gray-500 text-sm block"
               for="supportiveEvidence"
               >Supportive Medical Evidence Provided
             </label>
@@ -263,7 +263,7 @@
             />
             <p id="supEvidError" class="input-error hidden"></p>
             <label
-              class="mb-2 font-bold block text-gray-500 text-sm block"
+              class="mt-2 mb-2 font-bold text-gray-500 text-sm block"
               for="missingDoc"
             >
               Missing medical evidence</label
@@ -276,41 +276,67 @@
               aria-describedby="missingDocError"
             />
             <p id="missingDocError" class="input-error hidden"></p>
-            <h3 class="mb-2 font-bold block text-gray-500 text-sm block">
-              Impairment Type
-            </h3>
-            <label for="impairment-type">Select Impairment Type</label>
-            <select name="impairment-type" id="impairment-type">
-              <option value="0">Select Impairment Type</option>
-              <option id="amputation-dismelia" value="AmputationDismelia">
-                Amputation-Dismelia
-              </option>
-              <option id="leg-length-difference" value="LegLengthDifference">
-                Leg Length Difference
-              </option>
-              <option id="impaired-muscle-power" value="ImpairedMusclePower">
-                Impaired Muscle Power
-              </option>
-              <option id="impaired-passive-rom" value="ImpairedPassiveROM">
-                Impaired Passive ROM
-              </option>
-              <option
-                id="spasticity-athetosis-ataxia"
-                value="SpasticityAthetosisAtaxia"
-              >
-                Spasticity/athetosis/ataxia
-              </option>
-            </select>
 
-            <label
-              class="mb-2 font-bold block text-gray-500 text-sm block"
-              for="spesificImpairment"
-              >Select Spesific Impairment</label
-            >
-            <select id="spesificImpairment" name="spesific-impairment">
-              <option value="0">Select Spesific Impairment</option>
-            </select>
+            <h3 class="mt-2 mb-2 font-bold block text-gray-500 text-sm">
+              Impairment Assessment
+            </h3>
+            <div class="flex flex-col md:flex-row gap-6 mb-8">
+              <div class="flex flex-col flex-1 gap-2">
+                <label
+                  class="block text-gray-500 text-sm font-bold border-l-4 border-[#F58220] pl-2"
+                  for="impairment-type"
+                >
+                  Impairment Type</label
+                >
+                <select
+                  class="w-full p-4 bg-white border-2 border-gray-200 rounded-2xl text-gray-700 outline-none transition-all cursor-pointer hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF]"
+                  name="impairment-type"
+                  id="impairment-type"
+                >
+                  <option value="0">Select Impairment Type</option>
+                  <option id="amputation-dismelia" value="AmputationDismelia">
+                    Amputation-Dismelia
+                  </option>
+                  <option
+                    id="leg-length-difference"
+                    value="LegLengthDifference"
+                  >
+                    Leg Length Difference
+                  </option>
+                  <option
+                    id="impaired-muscle-power"
+                    value="ImpairedMusclePower"
+                  >
+                    Impaired Muscle Power
+                  </option>
+                  <option id="impaired-passive-rom" value="ImpairedPassiveROM">
+                    Impaired Passive ROM
+                  </option>
+                  <option
+                    id="spasticity-athetosis-ataxia"
+                    value="SpasticityAthetosisAtaxia"
+                  >
+                    Spasticity/athetosis/ataxia
+                  </option>
+                </select>
+              </div>
+              <div class="flex flex-col flex-1 gap-2">
+                <label
+                  class="block text-gray-500 text-sm font-bold border-l-4 border-[#F58220] pl-2"
+                  for="spesificImpairment"
+                  >Spesific Impairment</label
+                >
+                <select
+                  class="w-full p-4 bg-white border-2 border-gray-200 rounded-2xl text-gray-700 outline-none transition-all cursor-pointer hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF]"
+                  id="spesificImpairment"
+                  name="spesific-impairment"
+                >
+                  <option value="0">Select Spesific Impairment</option>
+                </select>
+              </div>
+            </div>
             <button
+              class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
               id="viewLogicBtn"
               disabled
               type="button"
@@ -318,7 +344,11 @@
             >
               View Classification Logic
             </button>
-            <button type="button" onclick="prevStep(1)">
+            <button
+              class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+              type="button"
+              onclick="prevStep(1)"
+            >
               Back to Personal Info
             </button>
 
