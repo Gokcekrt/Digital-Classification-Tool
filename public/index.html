@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="output.css" />
     <title>Classification</title>
   </head>
 
@@ -280,7 +280,7 @@
             <h3 class="mt-2 mb-2 font-bold block text-gray-500 text-sm">
               Impairment Assessment
             </h3>
-            <div class="flex flex-col md:flex-row gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               <div class="flex flex-col flex-1 gap-2">
                 <label
                   class="block text-gray-500 text-sm font-bold border-l-4 border-[#F58220] pl-2"
@@ -335,162 +335,359 @@
                 </select>
               </div>
             </div>
-            <button
-              class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
-              id="viewLogicBtn"
-              disabled
-              type="button"
-              onclick="nextStep2()"
-            >
-              View Classification Logic
-            </button>
-            <button
-              class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
-              type="button"
-              onclick="prevStep(1)"
-            >
-              Back to Personal Info
-            </button>
-
+            <div class="flex flex-col md:flex-row gap-4">
+              <button
+                class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+                type="button"
+                onclick="prevStep(1)"
+              >
+                Back to Personal Info
+              </button>
+              <button
+                class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+                id="viewLogicBtn"
+                disabled
+                type="button"
+                onclick="nextStep2()"
+              >
+                View Classification Logic
+              </button>
+            </div>
             <section
               data-section="amputationOneUpperLimb"
               id="amputationOneUpperLimb"
-              class="result-section"
+              class="result-section hidden"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1 </strong
+                    ><br />
                     All five digits (4 fingers and a thumb) at MCP joints on one
                     hand or more proximal amputation
                   </p>
                 </div>
 
-                <div class="card" cardValue="vs2">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
-                    Any four digits1 on one hand at MCP joints; or Thumb and 2
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />
+                    Any four digits on one hand at MCP joints; or Thumb and 2
                     adjacent fingers on one hand
                   </p>
                 </div>
 
-                <div class="card" cardValue="ne">
-                  <p>Amputation of partial digits (phalanges)</p>
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
+                  <p>
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600"
+                      >NE</strong
+                    ><br />Amputation of partial digits (phalanges)
+                  </p>
                 </div>
               </div>
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
 
             <section
               id="amputationBothUpperLimb"
-              class="result-section"
+              class="result-section hidden"
               data-section="amputationBothUpperLimb"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1 </strong
+                    ><br />
                     Eight digits across both hands; or first three digits across
                     both hands.
                   </p>
                 </div>
-                <div class="card" cardValue="vs2">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />
                     Thumbs both hands; or index and long fingers both hands.
                   </p>
                 </div>
-                <div class="card" cardValue="ne">Not Eligible</div>
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
+                  <p>
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >NE</strong
+                    ><br />
+                    Not Eligible
+                  </p>
+                </div>
               </div>
 
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
             <section
               data-section="amputationLowerLimb"
               id="amputationLowerLimb"
-              class="result-section"
+              class="result-section hidden"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1 </strong
+                    ><br />
                     Through-ankle (no calcaneum) or more proximal amputation
                   </p>
                 </div>
-                <div class="card" cardValue="vs2">
-                  Chopart or Lisfranc (one or both sides)
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
+                  <p>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />
+                    Chopart or Lisfranc (one or both sides)
+                  </p>
                 </div>
-                <div class="card" cardValue="ne">Not Eligible</div>
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
+                  <p>
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >NE</strong
+                    ><br />
+                    Not Eligible
+                  </p>
+                </div>
               </div>
-              <textarea class="classifierNotes" placeholder="Classifier Notes">
+              <textarea
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                placeholder="Classifier Notes"
+              >
               </textarea>
             </section>
             <section
               data-section="amputationUpperLowerLimb"
               id="amputationUpperLowerLimb"
-              class="result-section"
+              class="result-section hidden"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1 </strong
+                    ><br />
                     Combination of amputations in upper and/or lower limbs –
                     class is determined by most severe impairment.
                   </p>
                 </div>
-                <div class="card" cardValue="vs2">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />
                     Combination of amputations in upper and/or lower limbs
                     –class determined by their most severe impairment.
                   </p>
                 </div>
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
+                  <p>
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >NE</strong
+                    ><br />Not Eligible
+                  </p>
+                </div>
               </div>
-              <textarea class="classifierNotes" placeholder="Classifier Notes">
+              <textarea
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                placeholder="Classifier Notes"
+              >
               </textarea>
             </section>
             <section
               data-section="dismeliaUpperLimb"
               id="dismeliaUpperLimb"
-              class="result-section"
+              class="result-section hidden"
             >
-              <p>
-                Please enter the length of affected and unaffected arms acromion
-                to most distal point!
-              </p>
-              <label for="unaffectedArm">Unaffected side</label>
-              <input type="number" id="unaffectedArm" name="unaffectedArm" />
-              <label for="affectedArm">Affected side</label>
-              <input type="number" id="affectedArm" name="affectedArm" />
-              <button id="calcDismeliaBtn">Calculate Length Difference</button>
-              <p class="calculation-result"></p>
-              <textarea class="classifierNotes" placeholder="Classifier Notes">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>
+                  Please enter the length of affected and unaffected arms
+                  acromion to most distal point!
+                </p>
+              </div>
+              <div
+                class="flex flex-col md:flex-row items-end justify-center gap-4 mb-6"
+              >
+                <div class="flex flex-col gap-2 w-full md:w-auto flex-1">
+                  <label
+                    class="text-xs font-black uppercase tracking-widest text-[#F58220]"
+                    for="unaffectedArm"
+                    >UNAFFECTED SIDE (cm)</label
+                  >
+                  <input
+                    class="w-full rounded-2xl border border-gray-200 bg-gray-50 p-4 outline-none transition-all focus:ring-2 focus:ring-[#00AEEF]"
+                    type="number"
+                    id="unaffectedArm"
+                    name="unaffectedArm"
+                  />
+                </div>
+                <div class="flex flex-col gap-2 w-full md:w-auto flex-1">
+                  <label
+                    class="text-xs font-black uppercase tracking-widest text-[#F58220]"
+                    for="affectedArm"
+                    >AFFECTED SIDE (cm)</label
+                  >
+                  <input
+                    class="w-full rounded-2xl border border-gray-200 bg-gray-50 p-4 outline-none transition-all focus:ring-2 focus:ring-[#00AEEF]"
+                    type="number"
+                    id="affectedArm"
+                    name="affectedArm"
+                  />
+                </div>
+                <div class="w-full md:w-auto">
+                  <button
+                    class="w-full rounded-2xl bg-[#00AEEF] px-8 py-4 font-bold text-white shadow-lg shadow-blue-100 hover:bg-[#008dbf] transition-all"
+                    id="calcDismeliaBtn"
+                  >
+                    Calculate Difference
+                  </button>
+                </div>
+              </div>
+              <div><p class="calculation-result"></p></div>
+              <textarea
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                placeholder="Classifier Notes"
+              >
               </textarea>
             </section>
             <section
               data-section="shorteningLowerLimb"
               id="shorteningLowerLimb"
-              class="result-section"
+              class="result-section hidden"
             >
-              <p>
-                Please enter the length of affected and unaffected limbs ASIS to
-                most distal point!
-              </p>
-              <label for="unaffectedLimb">Unaffected side</label>
-              <input type="number" id="unaffectedLimb" name="unaffectedLimb" />
-              <label for="affectedLimb">Affected side</label>
-              <input type="number" id="affectedLimb" name="affectedLimb" />
-              <button type="button" id="calcShorteningLowerLimbBtn">
-                Calculate Length Difference
-              </button>
-              <p class="calculation-result-shortlimb"></p>
-              <textarea class="classifierNotes" placeholder="Classifier Notes">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>
+                  Please enter the length of affected and unaffected limbs ASIS
+                  to most distal point!
+                </p>
+              </div>
+              <div
+                class="flex flex-col md:flex-row items-end justify-center gap-4 mb-6"
+              >
+                <div class="flex flex-col gap-2 w-full md:w-auto flex-1">
+                  <label
+                    class="text-xs font-black uppercase tracking-widest text-[#F58220]"
+                    for="unaffectedLimb"
+                    >UNAFFECTED SIDE (cm)</label
+                  >
+                  <input
+                    class="w-full rounded-2xl border border-gray-200 bg-gray-50 p-4 outline-none transition-all focus:ring-2 focus:ring-[#00AEEF]"
+                    type="number"
+                    id="unaffectedLimb"
+                    name="unaffectedLimb"
+                  />
+                </div>
+                <div class="flex flex-col gap-2 w-full md:w-auto flex-1">
+                  <label
+                    class="text-xs font-black uppercase tracking-widest text-[#F58220]"
+                    for="affectedLimb"
+                    >AFFECTED SIDE (cm)</label
+                  >
+                  <input
+                    class="w-full rounded-2xl border border-gray-200 bg-gray-50 p-4 outline-none transition-all focus:ring-2 focus:ring-[#00AEEF]"
+                    type="number"
+                    id="affectedLimb"
+                    name="affectedLimb"
+                  />
+                </div>
+                <div class="w-full md:w-auto">
+                  <button
+                    class="w-full rounded-2xl bg-[#00AEEF] px-8 py-4 font-bold text-white shadow-lg shadow-blue-100 hover:bg-[#008dbf] transition-all"
+                    type="button"
+                    id="calcShorteningLowerLimbBtn"
+                  >
+                    Calculate Length Difference
+                  </button>
+                </div>
+              </div>
+              <div><p class="calculation-result-shortlimb"></p></div>
+              <textarea
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
+                placeholder="Classifier Notes"
+              >
               </textarea>
             </section>
-            <section id="lossMpOneUpperLimb" class="result-section">
+            <section id="lossMpOneUpperLimb" class="result-section hidden">
               <h4>
                 Recording Rules regarding PROM: No Deduction: If PROM is normal
                 or the limitation is insignificant, grades 1–2 must be recorded
@@ -1013,27 +1210,37 @@
               >
                 <div class="UpperLimbMPLossCard hidden" cardValue="vs1">
                   <p>
-                    <strong>Sport Class VS1:</strong> Total loss of 25 or more
-                    muscle points
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >Sport Class VS1:</strong
+                    >
+                    Total loss of 25 or more muscle points
                   </p>
                 </div>
 
                 <div class="UpperLimbMPLossCard hidden" cardValue="vs2">
                   <p>
-                    <strong>Sport Class VS2:</strong> Total loss of 15-24 muscle
-                    points
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >Sport Class VS2:</strong
+                    >
+                    Total loss of 15-24 muscle points
                   </p>
                 </div>
 
                 <div class="UpperLimbMPLossCard hidden" cardValue="ne">
                   <p>
-                    <strong>Not Eligible (NE):</strong> Total loss of muscle
-                    power is less than 15 points
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >Not Eligible (NE):</strong
+                    >
+                    Total loss of muscle power is less than 15 points
                   </p>
                 </div>
               </div>
             </section>
-            <section id="lossMpOneOrBothLowerLimb" class="result-section">
+            <section
+              id="lossMpOneOrBothLowerLimb"
+              class="result-section hidden"
+            >
               <h4>
                 Recording Rules regarding PROM: No Deduction: If PROM is normal
                 or the limitation is insignificant, grades 1–2 must be recorded
@@ -1463,261 +1670,445 @@
               >
                 <div class="MPLossCard hidden" cardValue="vs1">
                   <p>
-                    <strong>Sport Class VS1:</strong> Combined total loss of 16
-                    or more muscle points in both lower limbs
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >Sport Class VS1:</strong
+                    >
+                    Combined total loss of 16 or more muscle points in both
+                    lower limbs
                   </p>
                 </div>
 
                 <div class="MPLossCard hidden" cardValue="vs2">
                   <p>
-                    <strong>Sport Class VS2:</strong> Combined loss of 7 to 15
-                    muscle points in both lower limbs
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >Sport Class VS2:</strong
+                    >
+                    Combined loss of 7 to 15 muscle points in both lower limbs
                   </p>
                 </div>
 
                 <div class="MPLossCard hidden" cardValue="ne">
                   <p>
-                    <strong>Not Eligible (NE):</strong> Combined loss of muscle
-                    power is less than 7 points in lower limbs
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >Not Eligible (NE):</strong
+                    >
+                    Combined loss of muscle power is less than 7 points in lower
+                    limbs
                   </p>
                 </div>
               </div>
             </section>
             <section
               id="promShoulder"
-              class="result-section"
+              class="result-section hidden"
               data-section="promShoulder"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
-                    <strong>VS1</strong>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1</strong
+                    ><br />
                     Abduction and/or flexion not more than 90 degrees both sides
                   </p>
                 </div>
 
-                <div class="card" cardValue="vs2">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
-                    <strong>VS2</strong>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />
                     Abduction and/or flexion not more than 90 degrees one side.
                   </p>
                 </div>
 
-                <div class="card" cardValue="ne">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
                   <p>
-                    <strong>Not Eligible</strong>More than 90 degrees abduction
-                    and/or flexion
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >Not Eligible</strong
+                    ><br />More than 90 degrees abduction and/or flexion
                   </p>
                 </div>
               </div>
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
             <section
               id="promElbowOneSide"
-              class="result-section"
+              class="result-section hidden"
               data-section="promElbowOneSide"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
-                    <strong>VS1</strong>Elbow extension deficit of 90 degrees or
-                    more.
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1</strong
+                    ><br />Elbow extension deficit of 90 degrees or more.
                   </p>
                 </div>
 
-                <div class="card" cardValue="vs2">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
-                    <strong>VS2</strong>Elbow extension deficit of 45- 89
-                    degrees.
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />Elbow extension deficit of 45- 89 degrees.
                   </p>
                 </div>
 
-                <div class="card" cardValue="ne">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
                   <p>
-                    <strong>Not Eligible</strong>Elbow extension deficit of less
-                    than 45 degrees
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >Not Eligible</strong
+                    ><br />Elbow extension deficit of less than 45 degrees
                   </p>
                 </div>
               </div>
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
             <section
               id="promWristOneSide"
-              class="result-section"
+              class="result-section hidden"
               data-section="promWristOneSide"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
-                    <strong>VS1</strong>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1</strong
+                    ><br />
                     Stiff in position below 0 degrees (hand in line with
                     forearm) to full flexion.
                   </p>
                 </div>
 
-                <div class="card" cardValue="vs2">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
-                    <strong>VS2</strong>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />
                     Stiff in position between 0 degrees (hand in line with
                     forearm) to full extension.
                   </p>
                 </div>
 
-                <div class="card" cardValue="ne">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
                   <p>
-                    <strong>Not Eligible</strong>
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >Not Eligible</strong
+                    ><br />
                     ROM of the wrist >5 degrees arc of motion (not ankylosed).
                   </p>
                 </div>
               </div>
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
             <section
               id="promFingers"
-              class="result-section"
+              class="result-section hidden"
               data-section="promFingers"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
-                    <strong>VS1</strong>Afunctional both hands (e.g.postburn
-                    contractures).
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1</strong
+                    ><br />
+                    Afunctional both hands (e.g.postburn contractures).
                   </p>
                 </div>
 
-                <div class="card" cardValue="vs2">
-                  <p><strong>VS2</strong>Afunctional one hand.</p>
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
+                  <p>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />Afunctional one hand.
+                  </p>
                 </div>
 
-                <div class="card" cardValue="ne">
-                  <p><strong>Not Eligible</strong></p>
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
+                  <p>
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >Not Eligible</strong
+                    >
+                  </p>
                 </div>
               </div>
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
-            <section id="promHip" class="result-section" data-section="promHip">
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
-                  <p><strong>VS1</strong>Stiff in any position.</p>
-                </div>
-
-                <div class="card" cardValue="vs2">
+            <section
+              id="promHip"
+              class="result-section hidden"
+              data-section="promHip"
+            >
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
-                    <strong>VS2</strong>Not more than 90 degrees of flexion.
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1</strong
+                    ><br />Stiff in any position.
                   </p>
                 </div>
 
-                <div class="card" cardValue="ne">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
-                    <strong>Not Eligible</strong>More than 90 degrees of
-                    flexion.
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />Not more than 90 degrees of flexion.
+                  </p>
+                </div>
+
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
+                  <p>
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >Not Eligible</strong
+                    >
+                    <br />More than 90 degrees of flexion.
                   </p>
                 </div>
               </div>
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
             <section
               id="promKneeOneSide"
-              class="result-section"
+              class="result-section hidden"
               data-section="promKneeOneSide"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
-                    <strong>VS1</strong>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1</strong
+                    ><br />
                     Knee flexion is 45 degrees or less measured from full
                     extension; or stiff knee in any position.
                   </p>
                 </div>
 
-                <div class="card" cardValue="vs2">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
-                    <strong>VS2</strong>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />
                     Knee flexion is between 46-90 degrees measured from full
                     extension.
                   </p>
                 </div>
 
-                <div class="card" cardValue="ne">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
                   <p>
-                    <strong>Not Eligible</strong> than 90 degrees of knee
-                    flexion.
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >Not Eligible</strong
+                    ><br />
+                    than 90 degrees of knee flexion.
                   </p>
                 </div>
               </div>
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
             <section
               id="promAnkle"
-              class="result-section"
+              class="result-section hidden"
               data-section="promAnkle"
             >
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
-                  <p><strong>VS1</strong></p>
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
+                  <p>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1</strong
+                    >
+                  </p>
                 </div>
 
-                <div class="card" cardValue="vs2">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
-                    <strong>VS2</strong>
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />
                     Ankle is ankylosed in any position.
                   </p>
                 </div>
 
-                <div class="card" cardValue="ne">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
                   <p>
-                    <strong>Not Eligible</strong> passive ROM in ankle joint.
+                    <strong
+                      class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
+                      >Not Eligible</strong
+                    ><br />
+                    Passive ROM in ankle joint.
                   </p>
                 </div>
               </div>
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
-            <section id="CpIsra" class="result-section" data-section="CpIsra">
-              <p>Choose which card is most suitable for your athlete?</p>
-              <div class="optionCards">
-                <div class="card" cardValue="vs1">
+            <section
+              id="CpIsra"
+              class="result-section hidden"
+              data-section="CpIsra"
+            >
+              <div
+                class="p-2 m-2 text-lg font-semibold text-gray-700 border-l-4 border-[#F58220]"
+              >
+                <p>Choose which card is most suitable for your athlete?</p>
+              </div>
+
+              <div class="optionCards flex flex-col md:flex-row gap-4">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs1"
+                >
                   <p>
-                    <strong>VS1</strong>
-                    Class 7 or lower:Athletes are hemiplegic and noticeable limp
-                    is often noticed. The dominant upper limb should have normal
-                    strength and movement. The affected upper limb is usually
-                    more apparent during activity, flat footed on affected side
-                    when running, often tilts head to one side during exertion.
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS1</strong
+                    ><br />
+                    Class 7 or lower:<br />Athletes are hemiplegic and
+                    noticeable limp is often noticed. The dominant upper limb
+                    should have normal strength and movement. The affected upper
+                    limb is usually more apparent during activity, flat footed
+                    on affected side when running, often tilts head to one side
+                    during exertion.
                   </p>
                 </div>
 
-                <div class="card" cardValue="vs2">
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="vs2"
+                >
                   <p>
-                    <strong>VS2</strong>
-                    Class 8:Athletes are minimally affected diplegic,
+                    <strong class="text-xl font-extrabold tracking-wide"
+                      >VS2</strong
+                    ><br />
+                    Class 8:<br />Athletes are minimally affected diplegic,
                     hemiplegic, and monoplegic or have minimal movement control
                     patterns. They will run without noticeable limp but
                     disability will be more evident on exertion, however the
@@ -1732,17 +2123,29 @@
                   </p>
                 </div>
 
-                <div class="card" cardValue="ne">
-                  <p><strong>Not Eligible</strong></p>
+                <div
+                  class="card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  cardValue="ne"
+                >
+                  <p>
+                    <strong
+                      class="text-center text-xl font-extrabold text-red-600 uppercase tracking-wide"
+                      >Not Eligible</strong
+                    ><br />
+                    Athletes with minimal involvement that do not meet the
+                    criteria for Class 8 or Class 7.
+                  </p>
                 </div>
               </div>
               <textarea
-                class="classifierNotes"
+                class="classifierNotes w-full mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-[#00AEEF] outline-none transition-all placeholder:text-gray-300"
                 placeholder="Classifier Notes"
               ></textarea>
             </section>
             <div id="summaryError"></div>
             <button
+              class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+              type="button"
               disabled
               id="btnCompleted"
               type="button"

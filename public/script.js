@@ -498,7 +498,8 @@ function restoreAllCardsSections(sectionKey) {
   sectionCards.forEach((card) => {
     if (card.getAttribute("cardValue") === savedClass) {
       card.classList.add("selected");
-      card.style.outline = "3px solid blue"; // Bulduk! Boya.
+    } else {
+      card.classList.remove("selected");
     }
   });
 }
@@ -549,7 +550,8 @@ function nextStep() {
   document.getElementById("step-2").style.display = "block";
   const allSections = document.querySelectorAll(".result-section");
   allSections.forEach((sec) => {
-    sec.style.display = "none";
+    sec.classList.add("hidden");
+    sec.style.display = "";
   });
 }
 
@@ -624,15 +626,16 @@ function nextStep2() {
 function showSection(id) {
   const allSections = document.querySelectorAll(".result-section");
   allSections.forEach((sec) => {
-    sec.style.display = "none";
+    sec.classList.add("hidden");
+    sec.style.display = "";
   });
 
   const targetSection = document.getElementById(id);
   const completedBtn = document.getElementById("btnCompleted");
   if (targetSection) {
-    targetSection.style.display = "block";
+    targetSection.classList.remove("hidden");
     completedBtn.hidden = false;
-    completedBtn.style.display = "block";
+    completedBtn.classList.remove("hidden");
     restoreSection(id);
   } else {
     console.error("Section bulunamadı:", id);
@@ -1086,7 +1089,12 @@ document.addEventListener("click", function (e) {
   if (!card) return;
 
   const section = card.closest(".result-section");
-  if (!section || section.style.display === "none") return;
+  if (!section || section.classList.contains("hidden")) return;
+
+  section.querySelectorAll(".card").forEach((c) => {
+    c.classList.remove("selected");
+  });
+  card.classList.add("selected");
 
   const val = card.getAttribute("cardValue");
   console.log(`The selection ${val}`);
@@ -1226,8 +1234,15 @@ if (calculateBtn) {
 
     resultComment.textContent = `The athlete's length of affected arm is ${formattedResult}% shorter than the unaffected arm.`;
 
+    resultBox.setAttribute(
+      "class",
+      "md:flex-1 p-6  rounded-2xl shadow-xl border-[#00AEEF] bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between",
+    );
+
+    resultheading.setAttribute("class", "text-xl font-extrabold tracking-wide");
+
     if (Calclogic < 25) {
-      resultheading.textContent = "Non Eligible";
+      resultheading.textContent = "NON ELIGIBLE";
       tempData.selectedClass = "ne";
     } else if (Calclogic >= 25 && Calclogic < 32) {
       resultheading.textContent = "VS2";
@@ -1317,8 +1332,14 @@ if (calcShorteningLowerLimbBtn) {
 
     resultComment.textContent = `The athlete's length of affected lower limb is ${formattedResult}% shorter than the unaffected limb.`;
 
+    resultBox.setAttribute(
+      "class",
+      "md:flex-1 p-6  rounded-2xl shadow-xl border-[#00AEEF] bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between",
+    );
+
+    resultheading.setAttribute("class", "text-xl font-extrabold tracking-wide");
     if (Calclogic < 7) {
-      resultheading.textContent = "Non Eligible";
+      resultheading.textContent = "NON ELIGIBLE";
       tempData.selectedClass = "ne";
     } else if (Calclogic >= 7 && Calclogic <= 32) {
       resultheading.textContent = "VS2";
