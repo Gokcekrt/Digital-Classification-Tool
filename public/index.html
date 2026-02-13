@@ -7,7 +7,7 @@
     <title>Classification</title>
   </head>
 
-  <body class="bg-[#F3F4F6] p-4">
+  <body class="bg-gray-100 py-10 px-4">
     <div class="max-w-6xl mx-auto flex p-6 items-center">
       <img src="logo/logopng.png" alt="Logo" class="h-14 w-auto" />
 
@@ -86,9 +86,7 @@
               />
               <p id="dobError" class="text-red-500 text-xs hidden"></p>
               <fieldset>
-                <legend
-                  class="mb-2 font-bold block text-gray-500 text-sm block"
-                >
+                <legend class="mb-2 font-bold block text-gray-500 text-sm">
                   Event Status
                 </legend>
                 <div
@@ -217,7 +215,7 @@
             </div>
 
             <button
-              class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+              class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
               id="proceedStep1Button"
               aria-label="Proceed to Assessment"
               disabled
@@ -337,14 +335,14 @@
             </div>
             <div class="flex flex-col md:flex-row gap-4">
               <button
-                class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+                class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
                 type="button"
                 onclick="prevStep(1)"
               >
                 Back to Personal Info
               </button>
               <button
-                class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+                class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
                 id="viewLogicBtn"
                 disabled
                 type="button"
@@ -688,527 +686,682 @@
               </textarea>
             </section>
             <section id="lossMpOneUpperLimb" class="result-section hidden">
-              <h4>
-                Recording Rules regarding PROM: No Deduction: If PROM is normal
-                or the limitation is insignificant, grades 1–2 must be recorded
-                as 0. Deduction Required: If PROM limitation reduces muscle
-                function, calculate the deduction manually and record the
-                adjusted score.
-              </h4>
-              <table>
-                <thead>
-                  <tr>
-                    <th rowspan="2">Upper Limbs</th>
-                    <th rowspan="2">Movements</th>
-                    <th colspan="2">Strength</th>
-                    <th colspan="2">PROM</th>
-                  </tr>
-                  <tr class="second-row">
-                    <td>Left</td>
-                    <td>Rigth</td>
-                    <td>Left</td>
-                    <td>Right</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td rowspan="4">Shoulder</td>
-                    <td>Flexion</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderFlexion_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderFlexion_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderFlexion_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderFlexion_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Extension</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderExtension_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderExtension_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderExtension_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderExtension_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Abduction</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderAbduction_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderAbduction_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderAbduction_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderAbduction_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Adduction</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderAdduction_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderAdduction_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderAdduction_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="shoulderAdduction_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2">Elbow</td>
-                    <td>Flexion</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="elbowFlexion_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="elbowFlexion_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="elbowFlexion_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="elbowFlexion_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Extension</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="elbowExtension_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="elbowExtension_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="elbowExtension_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="elbowExtension_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2">ForeArm</td>
-                    <td>Supination</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="foreArmSupination_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
+              <div data-layout="desktop" class="hidden md:block">
+                <div class="bg-white border-t-4 border-slate-200 shadow-sm">
+                  <div class="flex gap-3 items-start p-2">
+                    <div
+                      class="mt-0.5 h-9 w-9 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0"
+                    >
+                      <span class="text-orange-600 font-bold">i</span>
+                    </div>
+                    <div class="space-y-1">
+                      <h4 class="text-base md:text-lg font-semibold">
+                        Recording Rules regarding PROM
+                      </h4>
+                      <p class="text-sm text-slate-600">
+                        <span class="font-semibold text-slate-800"
+                          >No Deduction:</span
+                        >
+                        PROM normal / insignificant → grades 1–2 →
+                        <span class="font-semibold">0</span>.
+                        <br />
+                        <span class="font-semibold text-slate-800"
+                          >Deduction Required:</span
+                        >
+                        PROM limitation reduces muscle function → manual
+                        deduction + adjusted score.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="bg-white border-t-4 border-slate-200 shadow-sm gap-2"
+                  >
+                    <div class="border-gray-200 rounded-2xl p-2">
+                      <h3 class="text-lg md:text-xl font-semibold">
+                        Upper Limb – Loss of Muscle Power
+                      </h3>
+                      <p class="text-sm text-slate-600">
+                        Shoulder / Elbow / Forearm / Wrist
+                      </p>
+                    </div>
+                    <div class="hidden md:block overflow-x-auto">
+                      <table
+                        class="w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden"
+                      >
+                        <thead class="bg-slate-50 text-gray-300">
+                          <tr class="text-slate-700">
+                            <th
+                              class="px-4 py-3 text-left font-semibold border-b border-slate-200"
+                              rowspan="2"
+                            >
+                              Upper Limbs
+                            </th>
+                            <th
+                              class="px-4 py-3 text-left font-semibold border-b border-slate-200"
+                              rowspan="2"
+                            >
+                              Movements
+                            </th>
+                            <th
+                              class="px-4 py-3 text-center font-semibold border-b border-slate-200"
+                              colspan="2"
+                            >
+                              Strength
+                            </th>
+                            <th
+                              class="px-4 py-3 text-center font-semibold border-b border-slate-200"
+                              colspan="2"
+                            >
+                              PROM
+                            </th>
+                          </tr>
+                          <tr
+                            class="second-row text-slate-600 bg-slate-50 text-xs"
+                          >
+                            <td
+                              class="px-4 pb-3 text-left font-medium border-b border-slate-200 uppercase"
+                            >
+                              Left
+                            </td>
+                            <td
+                              class="px-4 pb-3 text-left font-medium border-b border-slate-200 uppercase"
+                            >
+                              Rigth
+                            </td>
+                            <td
+                              class="px-4 pb-3 text-left font-medium border-b border-slate-200 uppercase"
+                            >
+                              Left
+                            </td>
+                            <td
+                              class="px-4 pb-3 text-left font-medium border-b border-slate-200 uppercase"
+                            >
+                              Right
+                            </td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr
+                            class="bg-white hover:bg-slate-50/60 transition-colors"
+                          >
+                            <td
+                              class="px-4 py-4 align-top font-semibold text-slate-800"
+                              rowspan="4"
+                            >
+                              Shoulder
+                            </td>
+                            <td class="px-4 py-4 text-slate-500">Flexion</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderFlexion_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderFlexion_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderFlexion_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderFlexion_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Extension</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderExtension_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderExtension_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderExtension_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderExtension_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Abduction</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderAbduction_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderAbduction_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderAbduction_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderAbduction_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Adduction</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderAdduction_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderAdduction_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderAdduction_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="shoulderAdduction_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr class="border-t-4 border-gray-200">
+                            <td
+                              class="px-4 py-4 align-top font-semibold text-slate-800"
+                              rowspan="2"
+                            >
+                              Elbow
+                            </td>
+                            <td class="px-4 py-4 text-slate-500">Flexion</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="elbowFlexion_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="elbowFlexion_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="elbowFlexion_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="elbowFlexion_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Extension</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="elbowExtension_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="elbowExtension_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="elbowExtension_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="elbowExtension_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr class="border-t-4 border-gray-200">
+                            <td
+                              class="px-4 py-4 align-top font-semibold text-slate-800"
+                              rowspan="2"
+                            >
+                              ForeArm
+                            </td>
+                            <td class="px-4 py-4 text-slate-500">Supination</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="foreArmSupination_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
 
-                    <td>
-                      <input
-                        type="number"
-                        name="foreArmSupination_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="foreArmSupination_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="foreArmSupination_prom_R"
-                        class="input-box"
-                      /><button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Pronation</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="foreArmPronation_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="foreArmPronation_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="foreArmPronation_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="foreArmPronation_prom_R"
-                        class="input-box"
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2">Wrist</td>
-                    <td>Dorsiflexion</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="wristDorsiflexion_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="wristDorsiflexion_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="wristDorsiflexion_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="wristDorsiflexion_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Volarflexion</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="wristVolarflexion_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="wristVolarflexion_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="wristVolarflexion_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="wristVolarflexion_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2">Finger2-5</td>
-                    <td>Flexion</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="fingersFlexion_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="fingersFlexion_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Extension</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="fingersExtension_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="fingersExtension_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2">Thumb</td>
-                    <td>Opposition</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="thumbOpposition_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="thumbOpposition_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Extension</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="thumbExtension_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="thumbExtension_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <button id="calculateUpperLimbLossMusclePowerPointsBtn">
+                            <td>
+                              <input
+                                type="number"
+                                name="foreArmSupination_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="foreArmSupination_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="foreArmSupination_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              /><button
+                                type="button"
+                                class="prom-warning"
+                                hidden
+                              >
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Pronation</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="foreArmPronation_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="foreArmPronation_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="foreArmPronation_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="foreArmPronation_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                            </td>
+                          </tr>
+                          <tr class="border-t-4 border-gray-200">
+                            <td
+                              class="px-4 py-4 align-top font-semibold text-slate-800"
+                              rowspan="2"
+                            >
+                              Wrist
+                            </td>
+                            <td class="px-4 py-4 text-slate-500">
+                              Dorsiflexion
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="wristDorsiflexion_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="wristDorsiflexion_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="wristDorsiflexion_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="wristDorsiflexion_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">
+                              Volarflexion
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="wristVolarflexion_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="wristVolarflexion_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="wristVolarflexion_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="wristVolarflexion_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr class="border-t-4 border-gray-200">
+                            <td
+                              class="px-4 py-4 align-top font-semibold text-slate-800"
+                              rowspan="2"
+                            >
+                              Finger2-5
+                            </td>
+                            <td class="px-4 py-4 text-slate-500">Flexion</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="fingersFlexion_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="fingersFlexion_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Extension</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="fingersExtension_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="fingersExtension_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr class="border-t-4 border-gray-200">
+                            <td
+                              class="px-4 py-4 align-top font-semibold text-slate-800"
+                              rowspan="2"
+                            >
+                              Thumb
+                            </td>
+                            <td class="px-4 py-4 text-slate-500">Opposition</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="thumbOpposition_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="thumbOpposition_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Extension</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="thumbExtension_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="thumbExtension_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                                placeholder="0-5"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--mobile layout for upper limb loss of muscle power-->
+              <div data-layout="mobile" class="md:hidden"></div>
+
+              <!--calculate button and result cards for mobile layout and desktop
+              layout-->
+              <button
+                class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+                id="calculateUpperLimbLossMusclePowerPointsBtn"
+              >
                 Calculate Upper Limb Loss of Muscle Power Points
               </button>
               <div
                 class="optionUpperLimbMPLossCards"
                 id="optionUpperLimbMPLossCards"
               >
-                <div class="UpperLimbMPLossCard hidden" cardValue="vs1">
+                <div
+                  class="UpperLimbMPLossCard card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between hidden"
+                  cardValue="vs1"
+                >
                   <p>
                     <strong class="text-xl font-extrabold tracking-wide"
                       >Sport Class VS1:</strong
@@ -1217,7 +1370,10 @@
                   </p>
                 </div>
 
-                <div class="UpperLimbMPLossCard hidden" cardValue="vs2">
+                <div
+                  class="UpperLimbMPLossCard card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between hidden"
+                  cardValue="vs2"
+                >
                   <p>
                     <strong class="text-xl font-extrabold tracking-wide"
                       >Sport Class VS2:</strong
@@ -1226,7 +1382,10 @@
                   </p>
                 </div>
 
-                <div class="UpperLimbMPLossCard hidden" cardValue="ne">
+                <div
+                  class="UpperLimbMPLossCard card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between hidden"
+                  cardValue="ne"
+                >
                   <p>
                     <strong
                       class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
@@ -1241,434 +1400,476 @@
               id="lossMpOneOrBothLowerLimb"
               class="result-section hidden"
             >
-              <h4>
-                Recording Rules regarding PROM: No Deduction: If PROM is normal
-                or the limitation is insignificant, grades 1–2 must be recorded
-                as 0. Deduction Required: If PROM limitation reduces muscle
-                function, calculate the deduction manually and record the
-                adjusted score.
-              </h4>
-              <table>
-                <thead>
-                  <tr>
-                    <th rowspan="2">Lower Limbs</th>
-                    <th rowspan="2">Movements</th>
-                    <th colspan="2">Strength</th>
-                    <th colspan="2">PROM</th>
-                  </tr>
-                  <tr class="second-row">
-                    <td>Left</td>
-                    <td>Rigth</td>
-                    <td>Left</td>
-                    <td>Right</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td rowspan="4">Hip</td>
-                    <td>Flexion</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipFlexion_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipFlexion_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipFlexion_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipFlexion_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Extension</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipExtension_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipExtension_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipExtension_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipExtension_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Abduction</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipAbduction_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipAbduction_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipAbduction_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipAbduction_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Adduction</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipAdduction_str_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="input-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipAdduction_str_R"
-                        class="input-box"
-                      />
-                      <p class="prom-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipAdduction_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="hipAdduction_prom_R"
-                        class="input-box"
-                      />
-                      <p class="prom-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2">Knee</td>
-                    <td>Flexion</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="kneeFlexion_str_L"
-                        class="input-box"
-                      />
-                      <p class="prom-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="kneeFlexion_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="kneeFlexion_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="kneeFlexion_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Extension</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="kneeExtension_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="kneeExtension_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="kneeExtension_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="kneeExtension_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2">Ankle</td>
-                    <td>Dorsiflexion</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="ankleDorsiflexion_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="ankleDorsiflexion_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="ankleDorsiflexion_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="ankleDorsiflexion_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Plantarflexion</td>
-                    <td>
-                      <input
-                        type="number"
-                        name="anklePlantarflexion_str_L"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="anklePlantarflexion_str_R"
-                        class="input-box"
-                      />
-                      <p class="input-error hidden"></p>
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="anklePlantarflexion_prom_L"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        name="anklePlantarflexion_prom_R"
-                        class="input-box"
-                      />
-                      <button type="button" class="prom-warning" hidden>
-                        ⚠
-                      </button>
-                      <p class="prom-error hidden"></p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <button id="calculateLowerLimbLossMusclePowerPointsBtn">
+              <div data-layout="desktop" class="hidden md:block">
+                <div class="bg-white border-t-4 border-slate-200 shadow-sm">
+                  <div class="flex gap-3 items-start p-2">
+                    <div
+                      class="mt-0.5 h-9 w-9 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0"
+                    >
+                      <span class="text-orange-600 font-bold">i</span>
+                    </div>
+                    <div class="space-y-1">
+                      <h4 class="text-base md:text-lg font-semibold">
+                        Recording Rules regarding PROM
+                      </h4>
+                      <p class="text-sm text-slate-600">
+                        <span class="font-semibold text-slate-800"
+                          >No Deduction:</span
+                        >
+                        PROM normal / insignificant → grades 1–2 →
+                        <span class="font-semibold">0</span>.
+                        <br />
+                        <span class="font-semibold text-slate-800"
+                          >Deduction Required:</span
+                        >
+                        PROM limitation reduces muscle function → manual
+                        deduction + adjusted score.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="bg-white border-t-4 border-slate-200 shadow-sm gap-2"
+                  >
+                    <div class="border-gray-200 rounded-2xl p-2">
+                      <h3 class="text-lg md:text-xl font-semibold">
+                        Lower Limb – Loss of Muscle Power
+                      </h3>
+                      <p class="text-sm text-slate-600">Hip / Knee / Ankle</p>
+                    </div>
+                    <div class="hidden md:block overflow-x-auto">
+                      <table
+                        class="w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden"
+                      >
+                        <thead class="bg-slate-50 text-gray-300">
+                          <tr class="text-slate-700">
+                            <th
+                              class="px-4 py-3 text-left font-semibold border-b border-slate-200"
+                              rowspan="2"
+                            >
+                              Lower Limbs
+                            </th>
+                            <th
+                              class="px-4 py-3 text-left font-semibold border-b border-slate-200"
+                              rowspan="2"
+                            >
+                              Movements
+                            </th>
+                            <th
+                              class="px-4 py-3 text-center font-semibold border-b border-slate-200"
+                              colspan="2"
+                            >
+                              Strength
+                            </th>
+                            <th
+                              class="px-4 py-3 text-center font-semibold border-b border-slate-200"
+                              colspan="2"
+                            >
+                              PROM
+                            </th>
+                          </tr>
+                          <tr
+                            class="second-row text-slate-600 bg-slate-50 text-xs"
+                          >
+                            <td
+                              class="px-4 pb-3 text-left font-medium border-b border-slate-200 uppercase"
+                            >
+                              Left
+                            </td>
+                            <td
+                              class="px-4 pb-3 text-left font-medium border-b border-slate-200 uppercase"
+                            >
+                              Rigth
+                            </td>
+                            <td
+                              class="px-4 pb-3 text-left font-medium border-b border-slate-200 uppercase"
+                            >
+                              Left
+                            </td>
+                            <td
+                              class="px-4 pb-3 text-left font-medium border-b border-slate-200 uppercase"
+                            >
+                              Right
+                            </td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr
+                            class="bg-white hover:bg-slate-50/60 transition-colors"
+                          >
+                            <td
+                              class="px-4 py-4 align-top font-semibold text-slate-800"
+                              rowspan="4"
+                            >
+                              Hip
+                            </td>
+                            <td class="px-4 py-4 text-slate-500">Flexion</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipFlexion_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipFlexion_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipFlexion_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipFlexion_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Extension</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipExtension_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipExtension_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipExtension_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipExtension_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Abduction</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipAbduction_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipAbduction_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipAbduction_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipAbduction_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Adduction</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipAdduction_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipAdduction_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipAdduction_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="hipAdduction_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <p class="prom-error hidden"></p>
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              class="px-4 py-4 align-top font-semibold text-slate-800"
+                              rowspan="2"
+                            >
+                              Knee
+                            </td>
+                            <td class="px-4 py-4 text-slate-500">Flexion</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="kneeFlexion_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="kneeFlexion_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="kneeFlexion_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="kneeFlexion_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">Extension</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="kneeExtension_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="kneeExtension_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="kneeExtension_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="kneeExtension_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              class="px-4 py-4 align-top font-semibold text-slate-800"
+                              rowspan="2"
+                            >
+                              Ankle
+                            </td>
+                            <td class="px-4 py-4 text-slate-500">
+                              Dorsiflexion
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="ankleDorsiflexion_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="ankleDorsiflexion_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="ankleDorsiflexion_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="ankleDorsiflexion_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-4 py-4 text-slate-500">
+                              Plantarflexion
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="anklePlantarflexion_str_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="anklePlantarflexion_str_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#F58220]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#F58220]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#F58220]/10 focus:border-[#F58220]/60 focus-visible:ring-2 focus-visible:ring-[#F58220]/20"
+                              />
+                              <p class="input-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="anklePlantarflexion_prom_L"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                            <td>
+                              <input
+                                type="number"
+                                name="anklePlantarflexion_prom_R"
+                                class="input-box w-24 rounded-lg px-3 py-2 bg-[#00AEEF]/5 text-gray-900 border border-[#E5E7EB] hover:border-[#00AEEF]/60 outline-none focus:outline-none focus-visible:outline-none focus:bg-[#00AEEF]/10 focus:border-[#00AEEF]/60 focus-visible:ring-2 focus-visible:ring-[#00AEEF]/20"
+                              />
+                              <button type="button" class="prom-warning" hidden>
+                                ⚠
+                              </button>
+                              <p class="prom-error hidden"></p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--mobile layout for upper limb loss of muscle power-->
+              <div data-layout="mobile" class="md:hidden"></div>
+
+              <!--calculate button and result cards for mobile layout and desktop
+              layout-->
+              <button
+                class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+                id="calculateUpperLimbLossMusclePowerPointsBtn"
+              >
                 Calculate Loss of Muscle Power Points
               </button>
               <div
                 class="optionMPLLowerLimbLossCards"
                 id="optionMPLLowerLimbLossCards"
               >
-                <div class="MPLossCard hidden" cardValue="vs1">
+                <div
+                  class="MPLossCard card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between hidden"
+                  cardValue="vs1"
+                >
                   <p>
                     <strong class="text-xl font-extrabold tracking-wide"
                       >Sport Class VS1:</strong
@@ -1678,7 +1879,10 @@
                   </p>
                 </div>
 
-                <div class="MPLossCard hidden" cardValue="vs2">
+                <div
+                  class="MPLossCard card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between hidden"
+                  cardValue="vs2"
+                >
                   <p>
                     <strong class="text-xl font-extrabold tracking-wide"
                       >Sport Class VS2:</strong
@@ -1687,7 +1891,10 @@
                   </p>
                 </div>
 
-                <div class="MPLossCard hidden" cardValue="ne">
+                <div
+                  class="MPLossCard card md:flex-1 p-6 bg-white border-2 border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 transition-all duration-300 cursor-pointer flex flex-col justify-between hidden"
+                  cardValue="ne"
+                >
                   <p>
                     <strong
                       class="text-xl font-extrabold tracking-wide text-red-600 uppercase"
@@ -2144,11 +2351,10 @@
             </section>
             <div id="summaryError"></div>
             <button
-              class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 mt-4 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+              class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
               type="button"
               disabled
               id="btnCompleted"
-              type="button"
               hidden
               onclick="nextStep3()"
             >
@@ -2156,35 +2362,197 @@
             </button>
           </div>
           <div id="step-3" class="form-step" style="display: none">
-            <h3>Summary of the classification</h3>
+            <h2
+              class="text-3xl tracking-tight font-bold border-l-4 border-[#F58220] pl-4 mb-2"
+            >
+              Summary of the classification
+            </h2>
+            <p class="text-gray-500 text-sm">
+              Review the athlete's details and finalize the classification.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+              <div
+                class="bg-[#F3F4F6] shadow-2xl rounded-[3rem] p-6 col-span-2 md:col-span-1"
+              >
+                <div class="mt-2 flex items-center flex-start gap-2 mb-6">
+                  <span
+                    class="inline-block w-2.5 h-2.5 bg-[#F58220] rounded-full"
+                  ></span>
+                  <h3
+                    class="text-xs font-black uppercase tracking-[0.2em] text-[#F58220]"
+                  >
+                    Athlete Identity
+                  </h3>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Full Name</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resName"
+                  ></span>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Date of Birth</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resDob"
+                  ></span>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Team Name</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resTeam"
+                  ></span>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Event Name</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resEvent"
+                  ></span>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Date of Classification</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resDateClassification"
+                  ></span>
+                </div>
+              </div>
 
-            <div class="summary-card">
-              <h5>Personal Information</h5>
-              <p>Name: <span id="resName"></span></p>
-              <p>DOB: <span id="resDob"></span></p>
-              <p>Team: <span id="resTeam"></span></p>
-              <p>Event: <span id="resEvent"></span></p>
-              <p>
-                Date of Classification: <span id="resDateClassification"></span>
-              </p>
+              <div
+                class="bg-[#F3F4F6] shadow-2xl rounded-[3rem] p-6 col-span-2 md:col-span-1"
+              >
+                <div class="mt-2 flex items-center flex-start gap-2 mb-6">
+                  <span
+                    class="inline-block w-2.5 h-2.5 bg-[#00AEEF] rounded-full"
+                  ></span>
+                  <h3
+                    class="text-xs font-black uppercase tracking-[0.2em] text-[#00AEEF]"
+                  >
+                    Assessment Details
+                  </h3>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Condition</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resCondition"
+                  ></span>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Medical Evidence</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resEvidence"
+                  ></span>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Missing Evidence</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resMissingEvidence"
+                  ></span>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Impairment Type</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resImpType"
+                  ></span>
+                </div>
+                <div class="flex justify-between gap-4 py-2">
+                  <span
+                    class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"
+                    >Specific Impairment Type</span
+                  >
+                  <span
+                    class="text-sm font-bold text-gray-800 text-right min-w-0 break-words"
+                    id="resSpecific"
+                  ></span>
+                </div>
+              </div>
             </div>
+            <div
+              class="third-card mt-10 flex flex-col md:flex-row gap-4 bg-white border-2 border-gray-100 rounded-[2.5rem] p-8 shadow-xl"
+            >
+              <div
+                class="first-part flex flex-col text-center md:text-left items-center justify-center"
+              >
+                <span
+                  class="rounded-4xl p-2 font-bold inline-block bg-[#F3F4F6] text-green-500 uppercase tracking-widest text-[10px]"
+                  >Final Decision</span
+                >
+                <div class="flex gap-2">
+                  <span
+                    class="text-5xl font-black text-gray-800 tracking-tighter uppercase italic"
+                    >Status:</span
+                  >
+                  <span
+                    class="text-5xl font-black text-[#F58220] tracking-tighter uppercase animate-pulse"
+                    id="resDecision"
+                  ></span>
+                </div>
+              </div>
+              <div class="second-part flex-1 p-2 min-w-0">
+                <p
+                  class="text-sm font-black uppercase text-gray-300 mb-2 tracking-widest"
+                >
+                  Classifier's Notes
+                </p>
+                <p
+                  class="text-gray-600 text-sm leading-relaxed italic border-l-2 border-[#00AEEF] pl-4 whitespace-normal break-all"
+                  id="resNotes"
+                ></p>
+              </div>
 
-            <div class="summary-card">
-              <h5>Assessment Details</h5>
-              <p>Condition: <span id="resCondition"></span></p>
-              <p>Medical Evidence: <span id="resEvidence"></span></p>
-              <p>Missing Evidence: <span id="resMissingEvidence"></span></p>
-              <p>Impairment Type: <span id="resImpType"></span></p>
-              <p>Specific: <span id="resSpecific"></span></p>
-              <p>Notes: <span id="resNotes"></span></p>
-              <h4 class="decision">Decision: <span id="resDecision"></span></h4>
+              <div
+                class="third-part min-w-0 flex flex-col gap-2 p-2 w-full md:w-64 shrink-0 justify-center items-center"
+              >
+                <button
+                  class="bg-white text-gray-400 border border-gray-200 px-10 py-3 rounded-2xl font-bold uppercase text-[10px] tracking-widest hover:bg-gray-50 transition-all"
+                  type="button"
+                  onclick="prevStep(2)"
+                >
+                  Edit Assessment
+                </button>
+                <button
+                  class="mt-2 mb-2 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+                  type="submit"
+                  onclick="finalize(event)"
+                >
+                  Save&Finalize the Classification
+                </button>
+              </div>
             </div>
-            <button type="button" onclick="prevStep(2)">
-              Edit Assessment (Back)
-            </button>
-            <button type="submit" onclick="finalize(event)">
-              Save and Finalize the Classification
-            </button>
           </div>
         </form>
       </div>

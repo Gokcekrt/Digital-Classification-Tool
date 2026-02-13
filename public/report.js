@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("printDate").textContent = new Date();
-
+  document.getElementById("printDate").textContent =
+    new Date().toLocaleString();
   const storedData = localStorage.getItem("athleteReport");
 
   if (!storedData) {
@@ -31,16 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
     " " + data.generalHealthInfo.missingDoc;
   document.getElementById("resImpType").textContent =
     " " + data.impairmentTypeLabel;
-  document.getElementById("resSpecific").textContent =
-    " " + data.spesificImpairmentLabel;
+
   document.getElementById("resNotes").textContent = " " + data.notes;
   document.getElementById("resDecision").textContent =
     " " + data.selectedClass.toUpperCase();
 });
 
 function startNewAssessment() {
-  const confirm = document.getElementById("startNewAthlete");
-  confirm.style.display = "block";
+  const confirmNewAthleteVar = document.getElementById("startNewAthlete");
+  confirmNewAthleteVar.removeAttribute("hidden");
 }
 
 function closeModal() {

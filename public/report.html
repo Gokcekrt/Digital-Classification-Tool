@@ -3,59 +3,254 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="report.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Athletic Report</title>
   </head>
-  <body>
-    <h1>Classification Report</h1>
-    <p>Date: <span id="printDate"></span></p>
-    <hr />
-    <h3>Athlete Information</h3>
-    <div><span id="resFlag"></span></div>
-    <ul>
-      <li><strong>Name:</strong><span id="resName"></span></li>
-      <li><strong>Date of Birth:</strong><span id="resDob"></span></li>
-      <li><strong>Team Name:</strong><span id="resTeam"></span></li>
-      <li><strong>Event Status:</strong><span id="resEvent"></span></li>
-      <li>
-        <strong>Date of Classification:</strong
-        ><span id="resDateClassification"></span>
-      </li>
-    </ul>
-    <h3>Medical Assessment</h3>
-    <ul>
-      <li>
-        <strong>Underlying Health Condition:</strong
-        ><span id="resCondition"></span>
-      </li>
-      <li><strong>Medical Evidence:</strong><span id="resEvidence"></span></li>
-      <li>
-        <strong>Missing Evidence:</strong><span id="resMissingEvidence"></span>
-      </li>
-      <li><strong>Impairment Type:</strong><span id="resImpType"></span></li>
-      <li>
-        <strong>Spesific Impairment:</strong><span id="resSpecific"></span>
-      </li>
-      <li><strong>Classifier Notes:</strong><span id="resNotes"></span></li>
-    </ul>
+  <body class="bg-gray-100 py-10 px-4">
+    <main
+      class="max-w-6xl mx-auto bg-white shadow-2xl rounded-sm border border-gray-200 p-8 md:p-12"
+    >
+      <header
+        class="flex justify-between items-start border-b border-gray-900 pb-6 mb-8"
+      >
+        <div class="flex flex-col">
+          <h1
+            class="text-3xl font-black uppercase tracking-tighter text-gray-900"
+          >
+            Classification Report
+          </h1>
 
-    <h3>
-      Final Sport Class Decision:<strong><span id="resDecision"></span></strong>
-    </h3>
+          <p class="text-sm font-medium text-gray-500 mt-1 mb-8">
+            Official Assessment Document
+          </p>
+        </div>
 
-    <button onclick="window.location.href = 'index.html'">Go Back&Edit</button>
-    <button onclick="window.print()">Print This Page</button>
-    <button onclick="startNewAssessment()">Start New Athlete</button>
-    <div id="startNewAthlete" hidden>
-      <p>
-        This will delete all current athlete data permanently. Are you sure you
-        want to proceed?
-      </p>
-      <div>
-        <button onclick="closeModal()">No,Cancel.</button>
-        <button onclick="confirmNewAthlete()">Yes,Clear it.</button>
+        <div class="flex flex-col">
+          <p
+            class="font-bold text-gray-400 uppercase tracking-widest text-[10px]"
+          >
+            Assesment Date
+          </p>
+          <span
+            class="font-mono text-gray-700 underline decoration-gray-300 decoration-2 underline-offset-4"
+            id="resDateClassification"
+          ></span>
+        </div>
+      </header>
+      <section class="mb-6 mt-6">
+        <div class="flex justify-between mb-6 p-2">
+          <h3
+            class="text-lg font-bold uppercase tracking-wider text-gray-800 border-l-4 border-[#F58220] pl-4 mb-4"
+          >
+            Athlete Information
+          </h3>
+
+          <img
+            alt="Country Flag"
+            class="w-10 h-10 rounded-full object-cover shadow-sm border border-gray-100"
+            id="resFlag"
+          />
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-10">
+          <div class="flex-1 gap-4">
+            <div class="flex flex-col border-b border-gray-100 pb-2 gap-2">
+              <span
+                class="text-[10px] font-black text-gray-400 uppercase tracking-tighter"
+                >Full Name:</span
+              >
+              <span
+                id="resName"
+                class="font-bold text-gray-700 uppercase"
+              ></span>
+            </div>
+            <div class="flex flex-col border-b border-gray-100 pb-2 gap-2">
+              <span
+                class="text-[10px] font-black text-gray-400 uppercase tracking-tighter"
+                >Date of Birth:</span
+              >
+              <span
+                id="resDob"
+                class="font-bold text-gray-700 italic uppercase"
+              ></span>
+            </div>
+          </div>
+          <div class="flex-1 gap-4">
+            <div class="flex flex-col border-b border-gray-100 pb-2 gap-2">
+              <span
+                class="text-[10px] font-black text-gray-400 uppercase tracking-tighter"
+                >Team:</span
+              >
+              <span
+                id="resTeam"
+                class="font-bold text-gray-700 italic uppercase"
+              ></span>
+            </div>
+            <div class="flex flex-col border-b border-gray-100 pb-2 gap-2">
+              <span
+                class="text-[10px] font-black text-gray-400 uppercase italic tracking-tighter"
+                >Event Status:</span
+              >
+              <span
+                id="resEvent"
+                class="font-bold text-gray-700 italic uppercase"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="bg-slate-50 p-2 border border-gray-200 rounded-xl">
+          <h3
+            class="text-lg font-bold uppercase tracking-wider text-gray-800 border-l-4 border-[#00AEEF] pl-4 mb-6"
+          >
+            Medical Assessment
+          </h3>
+          <div class="flex flex-col md:flex-row gap-2">
+            <div class="flex flex-col pb-2 gap-2 flex-1">
+              <span
+                class="text-[10px] font-black text-gray-400 uppercase tracking-tighter"
+                >Underlying Health Condition:</span
+              >
+              <span
+                id="resCondition"
+                class="font-bold text-gray-700 italic uppercase"
+              ></span>
+            </div>
+            <div class="flex flex-col pb-2 gap-2 flex-1">
+              <span
+                class="text-[10px] font-black text-gray-400 uppercase tracking-tighter"
+                >Medical Evidence:</span
+              >
+              <span
+                id="resEvidence"
+                class="font-bold text-gray-700 italic uppercase"
+              ></span>
+            </div>
+            <div class="flex flex-col pb-2 gap-2 flex-1">
+              <span
+                class="text-[10px] font-black text-gray-400 uppercase tracking-tighter"
+                >Missing Evidence:</span
+              >
+              <span
+                id="resMissingEvidence"
+                class="font-bold text-gray-700 italic uppercase"
+              ></span>
+            </div>
+            <div class="flex flex-col pb-2 gap-2 flex-1">
+              <span
+                class="text-[10px] font-black text-gray-400 uppercase tracking-tighter"
+                >Impairment Type:</span
+              >
+              <span
+                id="resImpType"
+                class="font-bold text-gray-700 italic uppercase"
+              ></span>
+            </div>
+          </div>
+          <div class="">
+            <h3
+              class="text-[10px] font-black text-gray-500 uppercase p-2 border-t-4 mt-2 border-gray-200 tracking-widest mb-2"
+            >
+              Classifier Statement & Notes
+            </h3>
+            <div
+              class="bg-white p-4 border border-gray-200 italic text-gray-600 text-sm leading-relaxed shadow-sm"
+            >
+              <span id="resNotes"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+        class="flex flex-col md:flex-row mt-12 justify-between p-6 rounded-sm bg-gray-800 border border-gray-800"
+      >
+        <div class="flex flex-col md:justify-center">
+          <p
+            class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em]"
+          >
+            Official Decision
+          </p>
+          <h3 class="text-xl text-[#ffffff] font-bold italic tracking-tighter">
+            Final Sport Class Allocation:
+          </h3>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <span
+            class="text-sm font-black text-gray-400 uppercase tracking-widest"
+          >
+            Status:
+          </span>
+          <span
+            class="text-5xl font-black text-[#F58220] tracking-tighter uppercase"
+            id="resDecision"
+          ></span>
+        </div>
       </div>
-    </div>
-    <script src="report.js"></script>
+      <div class="grid grid-cols-3 border border-gray-200 mt-10">
+        <div grid-col-1>
+          <p
+            class="text-[10px] font-black uppercase text-gray-800 block tracking-widest"
+          >
+            Athlete's Signature
+          </p>
+          <p class="text-[11px] text-gray-500 leading-relaxed italic">
+            (Following the test, I have been informed about my sport class and
+            status, and I was given the opportunity to ask questions.)
+          </p>
+        </div>
+        <div grid-col-1></div>
+        <div grid-col-1>
+          <p
+            class="text-[10px] font-black uppercase text-gray-800 block tracking-widest"
+          >
+            Date and Time
+          </p>
+          <span
+            class="text-sm font-mono text-gray-800 italic"
+            id="printDate"
+          ></span>
+        </div>
+      </div>
+      <div
+        class="border-t-4 border-gray-200 pt-10 mt-10 flex gap-10 justify-center"
+      >
+        <button
+          class="px-6 py-2 border border-gray-300 text-gray-500 font-bold text-[10px] uppercase hover:bg-gray-50 transition-all tracking-widest rounded-sm italic"
+          onclick="window.location.href = 'index.html'"
+        >
+          Go Back&Edit
+        </button>
+        <button
+          class="px-8 py-3 bg-gray-800 text-white font-black text-[10px] uppercase tracking-[0.2em] hover:bg-black transition-all shadow-lg rounded-sm"
+          onclick="window.print()"
+        >
+          Print This Page
+        </button>
+        <button
+          class="px-6 py-2 border border-red-200 text-red-400 font-bold text-[10px] uppercase hover:bg-red-50 transition-all tracking-widest rounded-sm italic"
+          onclick="startNewAssessment()"
+        >
+          Start New Athlete
+        </button>
+      </div>
+      <div
+        class="flex flex-col items-center z-40 justify-center bg-gray-700 text-white"
+        id="startNewAthlete"
+        hidden
+      >
+        <p
+          class="text-xl font-black text-gray-900 text-center uppercase tracking-tight mb-2"
+        >
+          This will delete all current athlete data permanently. Are you sure
+          you want to proceed?
+        </p>
+        <div>
+          <button onclick="closeModal()">No,Cancel.</button>
+          <button onclick="confirmNewAthlete()">Yes,Clear it.</button>
+        </div>
+      </div>
+    </main>
+    <script src="./report.js" defer></script>
   </body>
 </html>

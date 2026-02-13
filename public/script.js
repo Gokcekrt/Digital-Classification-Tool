@@ -515,6 +515,9 @@ function restoreMusclePowerSection(sectionId) {
     const inp = sectionEl.querySelector(`input[name="${name}"]`);
     if (inp) inp.value = saved[name];
   }
+  if (sectionId === "lossMpOneUpperLimb") {
+    applyOfflineAfterRestore();
+  }
 }
 
 // ==========================
@@ -685,6 +688,7 @@ function nextStep3() {
 // 6) MUSCLE POWER section's PROM limiter warning
 // ==========================
 
+//for comparing normal ROM values with input values
 function getNormalRom(keyMovement) {
   if (normalLowerLimbROMValues[keyMovement] !== undefined) {
     return normalLowerLimbROMValues[keyMovement];
@@ -694,6 +698,7 @@ function getNormalRom(keyMovement) {
   return null;
 }
 
+//for filling default ROM values to empty inputs it wont show warning messages if all proms are normal user doesnt need to fill all inputs
 function fillDefaultROM(valuesObject) {
   for (let key in valuesObject) {
     const inputs = document.querySelectorAll(`input[name^="${key}_prom_"]`);
@@ -908,17 +913,53 @@ function makeOfflineULOneSideSelection() {
     if (hasValue) {
       // Bir tarafa değer girildiyse DİĞER tarafı kapat
       const targets = isL ? rightSide : leftSide;
+      const store = tempData.measures?.ImpairedMusclePower?.lossMpOneUpperLimb; //storeda bi şey var mı önceden alınan değerler için
       targets.forEach((item) => {
         item.value = "";
         item.disabled = true;
         item.classList.add("offline");
         clearErrorMsg(item); // Kilitlenen taraftaki uyarıları sil
+        if (store) delete store[item.name]; //storeda önceden varsa ise sil
       });
     } else {
       // Değer silindiyse ve o kol tamamen boşsa her şeyi geri aç
       checkAndRestore(leftSide, rightSide);
     }
   });
+}
+
+function applyOfflineAfterRestore() {
+  if (!sectionMpUpperLimbLoss) return;
+  const rightSide = sectionMpUpperLimbLoss.querySelectorAll(
+    'input[name*="_str_R"]', //bunlar nodelist olduğu için array fonksiyonları yok
+  );
+  const leftSide = sectionMpUpperLimbLoss.querySelectorAll(
+    'input[name*="_str_L"]',
+  );
+  const isLFilled = Array.from(leftSide).some((i) => i.value !== "");
+  const isRFilled = Array.from(rightSide).some((i) => i.value !== "");
+
+  if (isLFilled && isRFilled) return;
+
+  const store = tempData.measures?.ImpairedMusclePower?.lossMpOneUpperLimb;
+
+  if (isLFilled) {
+    rightSide.forEach((item) => {
+      if (store) delete store[item.name];
+      item.disabled = true;
+      item.classList.add("offline");
+      clearErrorMsg(item);
+    });
+  } else if (isRFilled) {
+    leftSide.forEach((item) => {
+      if (store) delete store[item.name];
+      item.disabled = true;
+      item.classList.add("offline");
+      clearErrorMsg(item);
+    });
+  } else {
+    checkAndRestore(leftSide, rightSide);
+  }
 }
 
 function checkAndRestore(left, right) {
@@ -929,6 +970,7 @@ function checkAndRestore(left, right) {
     [...left, ...right].forEach((item) => {
       item.disabled = false;
       item.classList.remove("offline");
+      clearErrorMsg(item);
     });
   }
 }
