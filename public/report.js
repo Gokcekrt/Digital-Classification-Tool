@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("resTeam").textContent = " " + data.personal.teamName;
   const flagResContainer = document.getElementById("resFlag");
   if (data.personal.flagUrl) {
-    flagResContainer.innerHTML = `<img src="${data.personal.flagUrl}" alt="Flag" style="width: 30px; height: auto;">`;
+    flagResContainer.innerHTML = `<img src="${data.personal.flagUrl}" alt="Flag" class="w-full h-full object-cover">`;
   }
   document.getElementById("resEvent").textContent =
     " " + data.personal.eventName + "(" + data.personal.eventStatus + ")";

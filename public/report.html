@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="output.css" />
     <title>Athletic Report</title>
   </head>
   <body class="bg-gray-100 py-10 px-4">
@@ -11,7 +11,7 @@
       class="max-w-6xl mx-auto bg-white shadow-2xl rounded-sm border border-gray-200 p-8 md:p-12"
     >
       <header
-        class="flex justify-between items-start border-b border-gray-900 pb-6 mb-8"
+        class="md:flex-row flex flex-col justify-between items-start border-b border-gray-900 pb-6 mb-8"
       >
         <div class="flex flex-col">
           <h1
@@ -38,18 +38,17 @@
         </div>
       </header>
       <section class="mb-6 mt-6">
-        <div class="flex justify-between mb-6 p-2">
+        <div class="flex justify-between mb-6 p-2 gap-4">
           <h3
             class="text-lg font-bold uppercase tracking-wider text-gray-800 border-l-4 border-[#F58220] pl-4 mb-4"
           >
             Athlete Information
           </h3>
 
-          <img
-            alt="Country Flag"
-            class="w-10 h-10 rounded-full object-cover shadow-sm border border-gray-100"
+          <div
+            class="object-contain max-w-32 max-h-28 shadow-sm overflow-hidden border border-gray-100"
             id="resFlag"
-          />
+          ></div>
         </div>
 
         <div class="flex flex-col md:flex-row gap-10">
@@ -213,41 +212,51 @@
         </div>
       </div>
       <div
-        class="border-t-4 border-gray-200 pt-10 mt-10 flex gap-10 justify-center"
+        class="border-t-4 border-gray-200 pt-10 mt-10 flex gap-10 flex-wrap justify-center"
       >
         <button
-          class="px-6 py-2 border border-gray-300 text-gray-500 font-bold text-[10px] uppercase hover:bg-gray-50 transition-all tracking-widest rounded-sm italic"
+          class="flex-1 px-6 py-2 border border-gray-300 text-gray-500 font-bold text-[10px] uppercase hover:bg-gray-50 transition-all tracking-widest rounded-sm italic"
           onclick="window.location.href = 'index.html'"
         >
           Go Back&Edit
         </button>
         <button
-          class="px-8 py-3 bg-gray-800 text-white font-black text-[10px] uppercase tracking-[0.2em] hover:bg-black transition-all shadow-lg rounded-sm"
+          class="flex-1 px-8 py-3 bg-gray-800 text-white font-black text-[10px] uppercase tracking-[0.2em] hover:bg-black transition-all shadow-lg rounded-sm"
           onclick="window.print()"
         >
           Print This Page
         </button>
         <button
-          class="px-6 py-2 border border-red-200 text-red-400 font-bold text-[10px] uppercase hover:bg-red-50 transition-all tracking-widest rounded-sm italic"
+          class="flex-1 px-6 py-2 border-2 border-red-500 text-red-600 font-bold text-[10px] uppercase hover:bg-red-50 transition-all tracking-widest rounded-sm italic focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:scale-95 active:bg-red-600 active:text-white"
           onclick="startNewAssessment()"
         >
           Start New Athlete
         </button>
       </div>
       <div
-        class="flex flex-col items-center z-40 justify-center bg-gray-700 text-white"
+        class="flex flex-col items-center z-40 justify-center"
         id="startNewAthlete"
         hidden
       >
         <p
-          class="text-xl font-black text-gray-900 text-center uppercase tracking-tight mb-2"
+          class="px-6 py-2 border border-gray-400 ring-2 ring-gray-500 ring-offset-2 rounded-sm text-red-500 font-bold text-[10px] uppercase mt-2 transition-all hover:bg-gray-50 focus:outline-none focus:ring-gray-800 active:scale-95 active:bg-gray-200"
         >
           This will delete all current athlete data permanently. Are you sure
           you want to proceed?
         </p>
         <div>
-          <button onclick="closeModal()">No,Cancel.</button>
-          <button onclick="confirmNewAthlete()">Yes,Clear it.</button>
+          <button
+            class="px-6 py-2 border border-gray-400 ring-2 ring-gray-300 ring-offset-2 rounded-sm text-gray-500 font-bold text-[10px] uppercase mt-2 transition-all hover:bg-gray-100 active:scale-95"
+            onclick="closeModal()"
+          >
+            No,Cancel.
+          </button>
+          <button
+            class="px-6 py-2 hover:bg-red-50 border ring-2 rounded-sm ring-offset-2 text-red-500 font-bold text-[10px] uppercase mt-2"
+            onclick="confirmNewAthlete()"
+          >
+            Yes,Clear it.
+          </button>
         </div>
       </div>
     </main>

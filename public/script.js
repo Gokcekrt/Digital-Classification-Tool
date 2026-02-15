@@ -645,17 +645,7 @@ function showSection(id) {
   }
 }
 
-const summaryError = document.getElementById("summaryError");
 function nextStep3() {
-  summaryError.textContent = "";
-  if (!tempData.selectedClass) {
-    const alertMessage = document.createElement("p");
-    alertMessage.textContent =
-      "Please select or calculate a class decision before completing.";
-    summaryError.appendChild(alertMessage);
-    return;
-  }
-
   document.getElementById("step-2").style.display = "none";
   document.getElementById("step-3").style.display = "block";
 
@@ -1488,7 +1478,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const findflagContainer = document.getElementById("flag");
       if (findflagContainer) {
         // Kayıtlı bayrak URL'sini kullanarak resmi tekrar oluşturur
-        findflagContainer.innerHTML = `<img src="${savedRecord.personal.flagUrl}" alt="Flag" style="width: 20px; height: auto;">`;
+        findflagContainer.innerHTML = `<img src="${savedRecord.personal.flagUrl}" alt="Flag of ${savedRecord.personal.teamName}" class="h-48 w-52  object-contain drop-shadow-lg">`;
       }
     }
     document.getElementById("event-name").value =
@@ -1604,7 +1594,7 @@ document.addEventListener("DOMContentLoaded", () => {
   selectEl.addEventListener("change", () => {
     let selectedOption = selectEl.options[selectEl.selectedIndex];
     let findSvg = selectedOption.getAttribute("data-flag");
-    findflagContainer.innerHTML = `<img src="${findSvg}" alt="Flag" class=" h-full w-full max-w-full object-contain drop-shadow-lg">`;
+    findflagContainer.innerHTML = `<img src="${findSvg}" alt="Flag" class="h-full w-full object-cover rounded-2xl">`;
     tempData.personal.teamName = selectedOption.value;
     tempData.personal.flagUrl = findSvg;
   });
