@@ -616,13 +616,25 @@ function restoreMusclePowerSection(sectionId) {
   const savedData = tempData.measures?.ImpairedMusclePower?.[sectionId];
   if (!savedData) return;
 
-  // it distributes the data
   Object.keys(savedData).forEach((key) => {
     const inputs = document.querySelectorAll(`input[name="${key}"]`);
-    inputs.forEach((inp) => (inp.value = savedData[key]));
+    inputs.forEach((inp) => {
+      let rawValue = savedData[key];
+
+      // the value should be 0-5
+      if (key.includes("_str_")) {
+        let numericVal = parseInt(rawValue);
+
+        if (numericVal > 5) numericVal = 5;
+        if (numericVal < 0) numericVal = 0;
+
+        rawValue = isNaN(numericVal) ? "" : numericVal.toString();
+      }
+
+      inp.value = rawValue;
+    });
   });
 
-  // after distribution apply the function
   if (sectionId === "lossMpOneUpperLimb") {
     manageMusclePowerLogic();
   }
@@ -912,11 +924,12 @@ function limitMusclePoint(sectionEl) {
     // 1) if its empty
     if (raw === "") {
       clearErrorMsg(input);
+      saveMusclePowerPoints(sectionEl.id);
       return;
     }
 
     // 2) saif it is not number
-    const pointvalue = Number(raw);
+    let pointvalue = Number(raw);
     if (!Number.isInteger(pointvalue)) {
       showErrorMsg(input, "Please enter a whole number between 0 and 5.");
       return; //if it is empty show error
@@ -925,16 +938,20 @@ function limitMusclePoint(sectionEl) {
     // 3) make str 5 max.
     if (pointvalue > 5) {
       input.value = 5;
+      pointvalue = 5;
       showErrorMsg(input, "According to MRC Scale, maximum grade is 5.");
+      saveMusclePowerPoints(sectionEl.id);
       return;
-    }
-    if (pointvalue < 0) {
+    } else if (pointvalue < 0) {
       input.value = 0;
+      pointvalue = 0;
       showErrorMsg(input, "According to MRC Scale, minimum grade is 0.");
+      saveMusclePowerPoints(sectionEl.id);
       return;
+    } else {
+      clearErrorMsg(input);
+      saveMusclePowerPoints(sectionEl.id);
     }
-
-    clearErrorMsg(input);
   });
 }
 
@@ -987,47 +1004,43 @@ function isStrengthSectionValid(sectionEl) {
 
 //upper limb muscle power loss part- for making disable one side
 
-function getMusclePowerPoints() {
-  // only find desktop parts
-
-  const container = document.querySelector('[data-layout="desktop"]');
-
-  // if it is filled from mobile;
-  const safeContainer =
-    container || document.getElementById("lossMpOneUpperLimb");
-
-  if (!safeContainer) return null;
+function getMusclePowerPoints(targetSectionId) {
+  const safeContainer = document.getElementById(targetSectionId);
+  if (!safeContainer) return 0;
 
   const allInputs = safeContainer.querySelectorAll('input[name*="_str_"]');
-
-  let totalLowerPoints = 0;
-  let totalUpperPoints = 0;
+  let totalPoints = 0;
+  let hasValue = false;
+  const processedNames = new Set();
 
   allInputs.forEach((item) => {
-    if (!item.disabled) {
+    if (
+      !item.disabled &&
+      item.value.trim() !== "" &&
+      !processedNames.has(item.name)
+    ) {
       let value = parseInt(item.value);
+
+      if (value > 5) value = 5;
+      if (value < 0) value = 0;
+
       if (!isNaN(value)) {
-        if (
-          item.name.includes("hip") ||
-          item.name.includes("knee") ||
-          item.name.includes("ankle")
-        ) {
-          totalLowerPoints += value;
-        } else {
-          totalUpperPoints += value;
-        }
+        totalPoints += value;
+        hasValue = true;
+        processedNames.add(item.name);
       }
     }
   });
 
+  if (!hasValue) return 0;
+
+  const maxPossible = targetSectionId.includes("Lower") ? 80 : 70;
+  const loss = maxPossible - totalPoints;
+
   console.log(
-    `Points-> Upper: ${totalUpperPoints}, Lower: ${totalLowerPoints}`,
+    ` ${targetSectionId} | Sum of points: ${totalPoints} | loss: ${loss}`,
   );
-
-  if (totalLowerPoints > 0) return 80 - totalLowerPoints;
-  if (totalUpperPoints > 0) return 70 - totalUpperPoints;
-
-  return 0;
+  return loss;
 }
 
 function getClassUpperLimbMusclePowerPoints(loss) {
@@ -1042,14 +1055,13 @@ function getClassUpperLimbMusclePowerPoints(loss) {
 
 function getClassLowerLimbMpLoss(loss) {
   if (loss >= 16) {
-    return "vs1";
+    return "vs1"; //disabled class for sitting volleyball (In Sitting Volleyball, a team consists of 6 players on the court. According to the rules, only one VS2 player is allowed on the court at any time; the rest must be VS1.So thats why we need to classify athletes. By limiting VS2 participation, the rules provide a fair platform for those with greater physical challenges. It prevents teams from relying solely on players with higher mobility, ensuring that Sitting Volleyball remains an inclusive and balanced sport where VS1 athletes—the core of the discipline—can truly shine and compete on equal terms.)
   } else if (loss >= 7 && loss <= 15) {
-    return "vs2";
+    return "vs2"; // Minimal Disability
   } else {
-    return "ne";
+    return "ne"; // the athlete is not disabled enough for playing sitting volleyball
   }
 }
-
 function showMPLossCard(cardValue) {
   const mpLowerLimbLossCards = document.querySelectorAll(
     "#optionMPLLowerLimbLossCards .MPLossCard",
@@ -1208,6 +1220,7 @@ document.addEventListener("click", (e) => {
 });
 
 // Muscle Power Loss calculation buttons
+// Muscle Power Loss calculation buttons
 const calcLowerLimbLossMPBtn = document.getElementById(
   "calculateLowerLimbLossMusclePowerPointsBtn",
 );
@@ -1215,18 +1228,23 @@ const calcUpperLimbLossMPBtn = document.getElementById(
   "calculateUpperLimbLossMusclePowerPointsBtn",
 );
 
+// 1. ÜST EKSTREMİTE (UPPER LIMB) HESAPLAMA BUTONU
 if (calcUpperLimbLossMPBtn) {
   calcUpperLimbLossMPBtn.addEventListener("click", function (e) {
     e.preventDefault();
 
-    if (validateSectionBeforeCalc("lossMpOneUpperLimb")) {
-      const loss = getMusclePowerPoints();
+    // Hangi bölümün hesaplanacağını değişkene atıyoruz
+    const targetID = "lossMpOneUpperLimb";
+
+    if (validateSectionBeforeCalc(targetID)) {
+      const loss = getMusclePowerPoints(targetID);
+
       const selectedCard = getClassUpperLimbMusclePowerPoints(loss);
       showMPLossCard(selectedCard);
       tempData.selectedClass = selectedCard;
       updateStep2Buttons();
-      console.log("Upper limb muscle power loss:", loss);
-      console.log("Selected card:", selectedCard);
+
+      console.log("Upper Limb loss:", loss, "decision:", selectedCard);
     }
   });
 }
@@ -1234,13 +1252,19 @@ if (calcUpperLimbLossMPBtn) {
 if (calcLowerLimbLossMPBtn) {
   calcLowerLimbLossMPBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    if (validateSectionBeforeCalc("lossMpOneOrBothLowerLimb")) {
-      const loss = getMusclePowerPoints();
-      console.log("Muscle power loss:", loss);
+
+    const targetID = "lossMpOneOrBothLowerLimb";
+
+    if (validateSectionBeforeCalc(targetID)) {
+      const loss = getMusclePowerPoints(targetID);
+
       const selectedCard = getClassLowerLimbMpLoss(loss);
+
       showMPLossCard(selectedCard);
       tempData.selectedClass = selectedCard;
       updateStep2Buttons();
+
+      console.log("Lower Limb Kayıp:", loss, "Karar:", selectedCard);
     }
   });
 }
@@ -1507,7 +1531,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedRecord.personal.flagUrl) {
       const findflagContainer = document.getElementById("flag");
       if (findflagContainer) {
-        // Kayıtlı bayrak URL'sini kullanarak resmi tekrar oluşturur
         findflagContainer.innerHTML = `<img src="${savedRecord.personal.flagUrl}" alt="Flag of ${savedRecord.personal.teamName}" class="h-48 w-52  object-contain drop-shadow-lg">`;
       }
     }
@@ -1554,30 +1577,25 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Muscle Power verilerini özel olarak yükle
     if (savedRecord.measures && savedRecord.measures.ImpairedMusclePower) {
-      // Upper Limb verisi varsa yükle
       if (savedRecord.measures.ImpairedMusclePower.lossMpOneUpperLimb) {
         restoreMusclePowerSection("lossMpOneUpperLimb");
       }
 
-      // Lower Limb verisi varsa yükle
       if (savedRecord.measures.ImpairedMusclePower.lossMpOneOrBothLowerLimb) {
         restoreMusclePowerSection("lossMpOneOrBothLowerLimb");
       }
     }
   }
 
-  // 1. Üst Ekstremite (Upper Limb) için dinleyici
   if (sectionMpUpperLimbLoss) {
     sectionMpUpperLimbLoss.addEventListener("input", () => {
       saveMusclePowerPoints("lossMpOneUpperLimb");
-      // Eğer hesaplama butonunu da güncellemek istersen buraya ekleyebilirsin
+
       // updateStep2Buttons();
     });
   }
 
-  // 2. Alt Ekstremite (Lower Limb) için dinleyici
   if (sectionMpLowerLimbLoss) {
     sectionMpLowerLimbLoss.addEventListener("input", () => {
       saveMusclePowerPoints("lossMpOneOrBothLowerLimb");
