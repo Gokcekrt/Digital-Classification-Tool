@@ -29,7 +29,7 @@ let finalAthleteRecord = {};
 // ==========================
 
 //regex : changeable
-const onlyLetters = /^[a-zA-Z\s-]+$/;
+const onlyLetters = /^[\p{L}\s-]+$/u;
 
 function showError(input, error, message) {
   if (!input || !error) return;
@@ -297,7 +297,7 @@ function updateStep2Buttons() {
   const viewLogicBtn = document.getElementById("viewLogicBtn");
   const completedBtn = document.getElementById("btnCompleted");
 
-  const baseOk = validationStep2Base(); // zaten viewLogicBtn’i açıp kapatıyorsun
+  const baseOk = validationStep2Base();
   const sectionOk = tempData.selectedClass ? true : false;
 
   if (completedBtn) {
@@ -319,14 +319,15 @@ const sectionMpLowerLimbLoss = document.getElementById(
   "lossMpOneOrBothLowerLimb",
 );
 
-// Normal values objects
+//At the beginning of the assessment (DOMContentLoaded), these values are
+// automatically populated into the input fields via 'fillDefaultROM()' function.)
 const normalLowerLimbROMValues = {
   hipFlexion: 120,
   hipExtension: 20,
   hipAbduction: 45,
   hipAdduction: 45,
   kneeFlexion: 150,
-  kneeExtension: 180, //normal ROM 0 degree
+  kneeExtension: 180, //normal ROM: 0 degree
   ankleDorsiflexion: 30,
   anklePlantarflexion: 45,
 };
@@ -337,7 +338,7 @@ const normalUpperLimbRomValues = {
   shoulderAdduction: 45,
   shoulderExtension: 45,
   elbowFlexion: 150,
-  elbowExtension: 180, //normal ROM 0 degree
+  elbowExtension: 180, //normal ROM: 0 degree
   foreArmPronation: 90,
   foreArmSupination: 90,
   wristDorsiflexion: 80,
@@ -503,20 +504,127 @@ function restoreAllCardsSections(sectionKey) {
     }
   });
 }
+//FOR THE SECTION: MUSCLE POWER LOSS
+function manageMusclePowerLogic() {
+  const section = document.getElementById("lossMpOneUpperLimb");
+  if (!section) return;
+
+  // choosing all right and left inputs into the variable
+  const allLeftInputs = document.querySelectorAll(
+    'input[name*="shoulder"][name*="_str_L"], input[name*="elbow"][name*="_str_L"], input[name*="foreArm"][name*="_str_L"], input[name*="wrist"][name*="_str_L"], input[name*="finger"][name*="_str_L"], input[name*="thumb"][name*="_str_L"]',
+  );
+  const allRightInputs = document.querySelectorAll(
+    'input[name*="shoulder"][name*="_str_R"], input[name*="elbow"][name*="_str_R"], input[name*="foreArm"][name*="_str_R"], input[name*="wrist"][name*="_str_R"], input[name*="finger"][name*="_str_R"], input[name*="thumb"][name*="_str_R"]',
+  );
+
+  // For setting Mobile and desktop uı for muscle power loss
+
+  // First choosing all inputs
+  const allInputs = document.querySelectorAll(
+    'input[name*="_str_"], input[name*="_prom_"]',
+  );
+
+  allInputs.forEach((input) => {
+    //
+    if (!input.hasAttribute("data-listener")) {
+      input.setAttribute("data-listener", "true");
+
+      input.addEventListener("input", function (e) {
+        const val = e.target.value;
+        const name = e.target.name; //finding html element name,we will find mob/desktop version
+
+        //finding other version and make same value for both of them
+        document.querySelectorAll(`input[name="${name}"]`).forEach((twin) => {
+          if (twin !== e.target) twin.value = val;
+        });
+
+        //if it is upperlimb strength apply the function
+        if (section.contains(e.target) && name.includes("_str_")) {
+          applyGlobalSideLock(allLeftInputs, allRightInputs);
+        }
+      });
+    }
+  });
+
+  //
+  applyGlobalSideLock(allLeftInputs, allRightInputs);
+}
+
+//for upper limb only one side mp loss is calculated
+function applyGlobalSideLock(leftInputs, rightInputs) {
+  let isLeftFilled = Array.from(leftInputs).some((i) => i.value.trim() !== "");
+
+  let isRightFilled = Array.from(rightInputs).some(
+    (i) => i.value.trim() !== "",
+  );
+
+  //if right input is filled make gray left inputs
+  rightInputs.forEach((inp) => {
+    if (isLeftFilled) {
+      inp.value = "";
+      inp.disabled = true;
+      inp.classList.add("offline", "bg-gray-100", "cursor-not-allowed");
+      if (typeof clearErrorMsg === "function") clearErrorMsg(inp);
+
+      // make offline other sided too (desktop-mobil)
+      document.querySelectorAll(`input[name="${inp.name}"]`).forEach((t) => {
+        t.value = "";
+        t.disabled = true;
+        t.classList.add("offline");
+      });
+    } else {
+      // if both sides are empty open all inputs (left,right)
+      if (!isRightFilled) {
+        inp.disabled = false;
+        inp.classList.remove("offline", "bg-gray-100", "cursor-not-allowed");
+        //
+        document.querySelectorAll(`input[name="${inp.name}"]`).forEach((t) => {
+          t.disabled = false;
+          t.classList.remove("offline");
+        });
+      }
+    }
+  });
+
+  leftInputs.forEach((inp) => {
+    if (isRightFilled) {
+      inp.value = "";
+      inp.disabled = true;
+      inp.classList.add("offline", "bg-gray-100", "cursor-not-allowed");
+      if (typeof clearErrorMsg === "function") clearErrorMsg(inp);
+
+      document.querySelectorAll(`input[name="${inp.name}"]`).forEach((t) => {
+        t.value = "";
+        t.disabled = true;
+        t.classList.add("offline");
+      });
+    } else {
+      if (!isLeftFilled) {
+        inp.disabled = false;
+        inp.classList.remove("offline", "bg-gray-100", "cursor-not-allowed");
+        document.querySelectorAll(`input[name="${inp.name}"]`).forEach((t) => {
+          t.disabled = false;
+          t.classList.remove("offline");
+        });
+      }
+    }
+  });
+}
+
+// 3. RESTORE (when you click Go Back Edit it distribute the data)
 function restoreMusclePowerSection(sectionId) {
-  const sectionEl = document.getElementById(sectionId);
-  //burdaki sectionEl farklı scopu farklı.
-  if (!sectionEl) return;
+  const savedData = tempData.measures?.ImpairedMusclePower?.[sectionId];
+  if (!savedData) return;
 
-  const saved = tempData.measures?.ImpairedMusclePower?.[sectionId];
-  if (!saved) return;
+  // it distributes the data
+  Object.keys(savedData).forEach((key) => {
+    const inputs = document.querySelectorAll(`input[name="${key}"]`);
+    inputs.forEach((inp) => (inp.value = savedData[key]));
+  });
 
-  for (let name in saved) {
-    const inp = sectionEl.querySelector(`input[name="${name}"]`);
-    if (inp) inp.value = saved[name];
-  }
+  // after distribution apply the function
   if (sectionId === "lossMpOneUpperLimb") {
-    applyOfflineAfterRestore();
+    manageMusclePowerLogic();
   }
 }
 
@@ -658,7 +766,6 @@ function nextStep3() {
   document.getElementById("resDateClassification").textContent =
     tempData.personal.classificationDate;
 
-  // Değerlendirme Bilgilerini Dağıtıyoruz
   document.getElementById("resCondition").textContent =
     tempData.generalHealthInfo.underlyingHealthCondition;
   document.getElementById("resEvidence").textContent =
@@ -791,10 +898,10 @@ function limitMusclePoint(sectionEl) {
   sectionEl.addEventListener("input", function (e) {
     const input = e.target;
 
-    // sadece strength input
+    // only strength input
     if (!input.name || !input.name.includes("_str_")) return;
 
-    // disabled ise hiç dokunma + hata da gösterme
+    // if it is already disabled dont show error
     if (input.disabled) {
       clearErrorMsg(input);
       return;
@@ -802,20 +909,20 @@ function limitMusclePoint(sectionEl) {
 
     const raw = input.value.trim();
 
-    // 1) boş
+    // 1) if its empty
     if (raw === "") {
       clearErrorMsg(input);
       return;
     }
 
-    // 2) sayı değilse
+    // 2) saif it is not number
     const pointvalue = Number(raw);
     if (!Number.isInteger(pointvalue)) {
       showErrorMsg(input, "Please enter a whole number between 0 and 5.");
-      return; //boş kalırsa error mesajı göstermeyi kaldırma ve calc ı aktidf etme
+      return; //if it is empty show error
     }
 
-    // 3) 0-5 aralığına zorla
+    // 3) make str 5 max.
     if (pointvalue > 5) {
       input.value = 5;
       showErrorMsg(input, "According to MRC Scale, maximum grade is 5.");
@@ -827,13 +934,12 @@ function limitMusclePoint(sectionEl) {
       return;
     }
 
-    // 4) tamam
     clearErrorMsg(input);
   });
 }
 
 function getErrorEl(input) {
-  // inputun hemen sonraki kardeşi <p> ise onu al
+  // if you find p element right after input
   const p = input.nextElementSibling;
   if (p && p.classList.contains("input-error")) return p;
   return null;
@@ -847,16 +953,14 @@ function showErrorMsg(input, message) {
   p.className =
     "input-error text-red-500 font-bold text-[10px] uppercase tracking-wider mt-1 ml-2";
   input.setAttribute("aria-invalid", "true");
-  // 2. Eğer bu element üzerinde daha önceden ayarlanmış bir "kaybolma sayacı" varsa onu iptal et.
-  // (Böylece kullanıcı arka arkaya hızlıca hata yaparsa mesaj hemen kapanmaz, süre sıfırlanır)
+
   if (p.removeTimer) {
     clearTimeout(p.removeTimer);
   }
 
-  // 3. 3 Saniye (3000 ms) sonra mesajı otomatik kaldır
   p.removeTimer = setTimeout(() => {
-    clearErrorMsg(input); // Mevcut temizleme fonksiyonunu çağırıyoruz
-  }, 2000); // Süreyi isteğine göre değiştirebilirsin (ör: 2000 = 2 saniye)
+    clearErrorMsg(input);
+  }, 2000); //remove error message after 2000ms
 }
 
 function clearErrorMsg(input) {
@@ -882,124 +986,47 @@ function isStrengthSectionValid(sectionEl) {
 }
 
 //upper limb muscle power loss part- for making disable one side
-function makeOfflineULOneSideSelection() {
-  if (!sectionMpUpperLimbLoss) return;
 
-  const rightSide = sectionMpUpperLimbLoss.querySelectorAll(
-    'input[name*="_str_R"]',
-  );
-  const leftSide = sectionMpUpperLimbLoss.querySelectorAll(
-    'input[name*="_str_L"]',
-  );
+function getMusclePowerPoints() {
+  // only find desktop parts
 
-  sectionMpUpperLimbLoss.addEventListener("input", function (e) {
-    const input = e.target;
-    if (!input.name.includes("_str_")) return;
+  const container = document.querySelector('[data-layout="desktop"]');
 
-    // Hangi tarafta işlem yapılıyor?
-    const isL = input.name.includes("_str_L");
-    const hasValue = input.value.trim() !== "";
+  // if it is filled from mobile;
+  const safeContainer =
+    container || document.getElementById("lossMpOneUpperLimb");
 
-    if (hasValue) {
-      // Bir tarafa değer girildiyse DİĞER tarafı kapat
-      const targets = isL ? rightSide : leftSide;
-      const store = tempData.measures?.ImpairedMusclePower?.lossMpOneUpperLimb; //storeda bi şey var mı önceden alınan değerler için
-      targets.forEach((item) => {
-        item.value = "";
-        item.disabled = true;
-        item.classList.add("offline");
-        clearErrorMsg(item); // Kilitlenen taraftaki uyarıları sil
-        if (store) delete store[item.name]; //storeda önceden varsa ise sil
-      });
-    } else {
-      // Değer silindiyse ve o kol tamamen boşsa her şeyi geri aç
-      checkAndRestore(leftSide, rightSide);
+  if (!safeContainer) return null;
+
+  const allInputs = safeContainer.querySelectorAll('input[name*="_str_"]');
+
+  let totalLowerPoints = 0;
+  let totalUpperPoints = 0;
+
+  allInputs.forEach((item) => {
+    if (!item.disabled) {
+      let value = parseInt(item.value);
+      if (!isNaN(value)) {
+        if (
+          item.name.includes("hip") ||
+          item.name.includes("knee") ||
+          item.name.includes("ankle")
+        ) {
+          totalLowerPoints += value;
+        } else {
+          totalUpperPoints += value;
+        }
+      }
     }
   });
-}
 
-function applyOfflineAfterRestore() {
-  if (!sectionMpUpperLimbLoss) return;
-  const rightSide = sectionMpUpperLimbLoss.querySelectorAll(
-    'input[name*="_str_R"]', //bunlar nodelist olduğu için array fonksiyonları yok
+  console.log(
+    `Points-> Upper: ${totalUpperPoints}, Lower: ${totalLowerPoints}`,
   );
-  const leftSide = sectionMpUpperLimbLoss.querySelectorAll(
-    'input[name*="_str_L"]',
-  );
-  const isLFilled = Array.from(leftSide).some((i) => i.value !== "");
-  const isRFilled = Array.from(rightSide).some((i) => i.value !== "");
 
-  if (isLFilled && isRFilled) return;
+  if (totalLowerPoints > 0) return 80 - totalLowerPoints;
+  if (totalUpperPoints > 0) return 70 - totalUpperPoints;
 
-  const store = tempData.measures?.ImpairedMusclePower?.lossMpOneUpperLimb;
-
-  if (isLFilled) {
-    rightSide.forEach((item) => {
-      if (store) delete store[item.name];
-      item.disabled = true;
-      item.classList.add("offline");
-      clearErrorMsg(item);
-    });
-  } else if (isRFilled) {
-    leftSide.forEach((item) => {
-      if (store) delete store[item.name];
-      item.disabled = true;
-      item.classList.add("offline");
-      clearErrorMsg(item);
-    });
-  } else {
-    checkAndRestore(leftSide, rightSide);
-  }
-}
-
-function checkAndRestore(left, right) {
-  const L_empty = Array.from(left).every((i) => i.value === "");
-  const R_empty = Array.from(right).every((i) => i.value === "");
-
-  if (L_empty && R_empty) {
-    [...left, ...right].forEach((item) => {
-      item.disabled = false;
-      item.classList.remove("offline");
-      clearErrorMsg(item);
-    });
-  }
-}
-function getMusclePowerPoints() {
-  if (!sectionMpLowerLimbLoss || !sectionMpUpperLimbLoss) return null;
-
-  const allMusclePowerPoints =
-    sectionMpLowerLimbLoss.querySelectorAll(`input[name*="_str_"]`);
-  const upperLimbMusclePowerPoints =
-    sectionMpUpperLimbLoss.querySelectorAll(`input[name*="_str_"]`);
-
-  let totalLowerMusclePoints = 0;
-  let totalUpperMusclePoints = 0;
-
-  if (allMusclePowerPoints.length > 0) {
-    allMusclePowerPoints.forEach((item) => {
-      let value = parseInt(item.value);
-      if (!isNaN(value)) {
-        totalLowerMusclePoints += value;
-      }
-    });
-  }
-  if (upperLimbMusclePowerPoints.length > 0) {
-    upperLimbMusclePowerPoints.forEach((item) => {
-      let value = parseInt(item.value);
-      if (!isNaN(value)) {
-        totalUpperMusclePoints += value;
-      }
-    });
-  }
-
-  console.log(`Total lower muscle power: ${totalLowerMusclePoints}`);
-
-  if (totalLowerMusclePoints > 0) {
-    return 80 - totalLowerMusclePoints;
-  }
-  if (totalUpperMusclePoints > 0) {
-    return 70 - totalUpperMusclePoints;
-  }
   return 0;
 }
 
@@ -1064,6 +1091,7 @@ function saveMusclePowerPoints(sectionId) {
     store[inp.name] = inp.value;
   });
 }
+
 function validateSectionBeforeCalc(sectionId) {
   const section = document.getElementById(sectionId);
   if (!section) {
@@ -1077,9 +1105,11 @@ function validateSectionBeforeCalc(sectionId) {
   let isValid = true;
   let filledCount = 0;
 
-  // 1. Önce herhangi bir şey yazılmış mı kontrol et
+  //
   inputs.forEach((input) => {
-    if (input.value.trim() !== "") filledCount++;
+    if (input.value.trim() !== "") {
+      filledCount++;
+    }
   });
 
   if (filledCount === 0) {
@@ -1087,7 +1117,7 @@ function validateSectionBeforeCalc(sectionId) {
     return false;
   }
 
-  // 2. Boş kalan aktif kutuları işaretle
+  // find if it is empty
   inputs.forEach((input) => {
     if (input.value.trim() === "") {
       showErrorMsg(input, "Required");
@@ -1109,7 +1139,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fillDefaultROM(normalUpperLimbRomValues);
   fillDefaultROM(normalLowerLimbROMValues);
 
-  makeOfflineULOneSideSelection();
+  manageMusclePowerLogic();
 
   limitMusclePoint(sectionMpLowerLimbLoss);
   limitMusclePoint(sectionMpUpperLimbLoss);
@@ -1598,4 +1628,33 @@ document.addEventListener("DOMContentLoaded", () => {
     tempData.personal.teamName = selectedOption.value;
     tempData.personal.flagUrl = findSvg;
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btnBackToStep1 = document.getElementById("btnBackToStep1");
+  if (btnBackToStep1) {
+    btnBackToStep1.addEventListener("click", () => {
+      prevStep(1);
+    });
+  }
+  const viewLogicBtn = document.getElementById("viewLogicBtn");
+  if (viewLogicBtn) {
+    viewLogicBtn.addEventListener("click", () => {
+      nextStep2();
+    });
+  }
+  const btnEditAssessment = document.getElementById("btnEditAssessment");
+  if (btnEditAssessment) {
+    btnEditAssessment.addEventListener("click", () => prevStep(2));
+  }
+  const btnCompleted = document.getElementById("btnCompleted");
+  if (btnCompleted) {
+    btnCompleted.addEventListener("click", () => {
+      nextStep3();
+    });
+  }
+  const btnFinalize = document.getElementById("btnFinalize");
+  if (btnFinalize) {
+    btnFinalize.addEventListener("click", finalize);
+  }
 });

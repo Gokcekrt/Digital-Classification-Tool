@@ -63,7 +63,7 @@
               />
               <p id="familyNameError" class="text-red-500 text-xs hidden"></p>
               <label
-                class="mb-2 font-bold block text-gray-500 text-sm block"
+                class="mb-2 font-bold block text-gray-500 text-sm"
                 for="given-name"
                 >Given Name</label
               >
@@ -77,7 +77,7 @@
               />
               <p id="givenNameError" class="text-red-500 text-xs hidden"></p>
               <label
-                class="mb-2 font-bold block text-gray-500 text-sm block"
+                class="mb-2 font-bold block text-gray-500 text-sm"
                 for="date-of-birth"
                 >Date of Birth</label
               >
@@ -172,7 +172,7 @@
 
               <div class="space-y-2">
                 <label
-                  class="mb-2 font-bold block text-gray-500 text-sm block"
+                  class="mb-2 font-bold block text-gray-500 text-sm"
                   for="team-name"
                   >Team Name</label
                 >
@@ -186,7 +186,7 @@
 
               <div class="space-y-2">
                 <label
-                  class="mb-2 font-bold block text-gray-500 text-sm block"
+                  class="mb-2 font-bold block text-gray-500 text-sm"
                   for="event-name"
                   >Event Name</label
                 >
@@ -201,7 +201,7 @@
               </div>
               <div>
                 <label
-                  class="mb-2 font-bold block text-gray-500 text-sm block"
+                  class="mb-2 font-bold block text-gray-500 text-sm"
                   for="date-of-classification"
                   >Date of Classification</label
                 >
@@ -342,7 +342,7 @@
               <button
                 class="mt-6 mb-6 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
                 type="button"
-                onclick="prevStep(1)"
+                id="btnBackToStep1"
               >
                 Back to Personal Info
               </button>
@@ -351,7 +351,7 @@
                 id="viewLogicBtn"
                 disabled
                 type="button"
-                onclick="nextStep2()"
+                id="viewLogicBtn"
               >
                 View Classification Logic
               </button>
@@ -734,27 +734,27 @@
                         class="w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden"
                       >
                         <thead class="bg-slate-50 text-gray-300">
-                          <tr class="text-slate-700">
+                          <tr class="border-t-4 border-gray-200">
                             <th
-                              class="px-4 py-3 text-left font-semibold border-b border-slate-200"
+                              class="px-4 py-3 text-left text-slate-800 font-semibold border-b border-slate-200"
                               rowspan="2"
                             >
                               Upper Limbs
                             </th>
                             <th
-                              class="px-4 py-3 text-left font-semibold border-b border-slate-200"
+                              class="px-4 py-3 text-left text-slate-800 font-semibold border-b border-slate-200"
                               rowspan="2"
                             >
                               Movements
                             </th>
                             <th
-                              class="px-4 py-3 text-center font-semibold border-b border-slate-200"
+                              class="px-4 py-3 text-center text-slate-800 font-semibold border-b border-slate-200"
                               colspan="2"
                             >
                               Strength
                             </th>
                             <th
-                              class="px-4 py-3 text-center font-semibold border-b border-slate-200"
+                              class="px-4 py-3 text-center text-slate-800 font-semibold border-b border-slate-200"
                               colspan="2"
                             >
                               PROM
@@ -1349,7 +1349,1089 @@
                 </div>
               </div>
               <!--mobile layout for upper limb loss of muscle power-->
-              <div data-layout="mobile" class="md:hidden"></div>
+              <div data-layout="mobile" class="block md:hidden">
+                <div>
+                  <div
+                    class="bg-white border-l-4 border-[#F58220] p-6 rounded-r-xl shadow-sm mb-6"
+                  >
+                    <h3 class="text-xl font-bold text-gray-800">
+                      Upper Limb – Loss of Muscle Power
+                    </h3>
+                    <p class="text-sm text-gray-500 mt-1">
+                      Shoulder / Elbow / Forearm / Wrist / Fingers
+                    </p>
+                  </div>
+                  <div class="flex gap-2">
+                    <div
+                      class="mt-0.5 h-9 w-9 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0"
+                    >
+                      <span class="text-orange-600 font-bold">i</span>
+                    </div>
+                    <div class="space-y-1">
+                      <h4 class="text-base font-semibold">
+                        Recording Rules regarding PROM
+                      </h4>
+                      <p class="text-sm text-slate-600">
+                        <span class="font-semibold text-slate-800"
+                          >No Deduction:</span
+                        >
+                        PROM normal / insignificant → grades 1–2 →
+                        <span class="font-semibold">0</span>.
+                        <br />
+                        <span class="font-semibold text-slate-800"
+                          >Deduction Required:</span
+                        >
+                        PROM limitation reduces muscle function → manual
+                        deduction + adjusted score.
+                      </p>
+                    </div>
+                  </div>
+
+                  <details
+                    class="bg-white border mt-10 rounded-lg shadow-2xl border-[#00AEEF]"
+                  >
+                    <summary
+                      class="flex justify-between rounded-lg border p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h2
+                        class="text-lg font-bold text-gray-700 uppercase tracking-wide"
+                      >
+                        Shoulder
+                      </h2>
+                      <div>
+                        <span class="group-open:rotate-180 text-[#F58220]">
+                          ▼</span
+                        >
+                      </div>
+                    </summary>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Flexion</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="shoulderFlexion_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="shoulderFlexion_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="shoulderFlexion_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="shoulderFlexion_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Extension</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="shoulderExtension_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="shoulderExtension_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="shoulderExtension_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="shoulderExtension_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                    </div>
+                    <!--ABDUCTİON-->
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Abduction</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="shoulderAbduction_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="shoulderAbduction_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="shoulderAbduction_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="shoulderAbduction_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                    </div>
+                    <!--ADDUCTION-->
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Adduction</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="shoulderAdduction_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="shoulderAdduction_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="shoulderAdduction_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="shoulderAdduction_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                    </div>
+                  </details>
+                  <!--elbow-->
+                  <details
+                    class="bg-white border mt-10 rounded-lg shadow-2xl border-[#00AEEF]"
+                  >
+                    <summary
+                      class="flex justify-between rounded-lg border p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h2
+                        class="text-lg font-bold text-gray-700 uppercase tracking-wide"
+                      >
+                        Elbow
+                      </h2>
+                      <div>
+                        <span class="group-open:rotate-180 text-[#F58220]">
+                          ▼</span
+                        >
+                      </div>
+                    </summary>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Flexion</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="elbowFlexion_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="elbowFlexion_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="elbowFlexion_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="elbowFlexion_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Extension</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="elbowExtension_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="elbowExtension_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="elbowExtension_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="elbowExtension_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                    </div>
+                  </details>
+                  <!--forearm-->
+                  <details
+                    class="bg-white border mt-10 rounded-lg shadow-2xl border-[#00AEEF]"
+                  >
+                    <summary
+                      class="flex justify-between rounded-lg border p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h2
+                        class="text-lg font-bold text-gray-700 uppercase tracking-wide"
+                      >
+                        ForeArm
+                      </h2>
+                      <div>
+                        <span class="group-open:rotate-180 text-[#F58220]">
+                          ▼</span
+                        >
+                      </div>
+                    </summary>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">
+                        Supination
+                      </h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="foreArmSupination_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="foreArmSupination_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="foreArmSupination_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="foreArmSupination_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Pronation</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="foreArmPronation_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="foreArmPronation_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="foreArmPronation_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="foreArmPronation_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                    </div>
+                  </details>
+                  <!--WRİST-->
+                  <details
+                    class="bg-white border mt-10 rounded-lg shadow-2xl border-[#00AEEF]"
+                  >
+                    <summary
+                      class="flex justify-between rounded-lg border p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h2
+                        class="text-lg font-bold text-gray-700 uppercase tracking-wide"
+                      >
+                        Wrist
+                      </h2>
+                      <div>
+                        <span class="group-open:rotate-180 text-[#F58220]">
+                          ▼</span
+                        >
+                      </div>
+                    </summary>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">
+                        Dorsiflexion
+                      </h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="wristDorsiflexion_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="wristDorsiflexion_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="wristDorsiflexion_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="wristDorsiflexion_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">
+                        Volarflexion
+                      </h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="wristVolarflexion_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="wristVolarflexion_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="wristVolarflexion_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="wristVolarflexion_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <p
+                        class="prom-error hidden text-red-500 text-[10px] font-bold mt-1"
+                      ></p>
+                    </div>
+                  </details>
+                  <!--FİNGER2-5-->
+                  <details
+                    class="bg-white border mt-10 rounded-lg shadow-2xl border-[#00AEEF]"
+                  >
+                    <summary
+                      class="flex justify-between rounded-lg border p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h2
+                        class="text-lg font-bold text-gray-700 uppercase tracking-wide"
+                      >
+                        Finger 2-5
+                      </h2>
+                      <div>
+                        <span class="group-open:rotate-180 text-[#F58220]">
+                          ▼</span
+                        >
+                      </div>
+                    </summary>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Flexion</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="fingersFlexion_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="fingersFlexion_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Extension</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="fingersExtension_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="fingersExtension_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                    </div>
+                  </details>
+                  <!--THUMB-->
+                  <details
+                    class="bg-white border mt-10 rounded-lg shadow-2xl border-[#00AEEF]"
+                  >
+                    <summary
+                      class="flex justify-between rounded-lg border p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h2
+                        class="text-lg font-bold text-gray-700 uppercase tracking-wide"
+                      >
+                        Thumb
+                      </h2>
+                      <div>
+                        <span class="group-open:rotate-180 text-[#F58220]">
+                          ▼</span
+                        >
+                      </div>
+                    </summary>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">
+                        Opposition
+                      </h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="thumbOpposition_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="thumbOpposition_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Extension</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="thumbExtension_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="thumbExtension_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              </div>
 
               <!--calculate button and result cards for mobile layout and desktop
               layout-->
@@ -1447,34 +2529,34 @@
                         class="w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden"
                       >
                         <thead class="bg-slate-50 text-gray-300">
-                          <tr class="text-slate-700">
+                          <tr class="border-t-4 border-gray-200">
                             <th
-                              class="px-4 py-3 text-left font-semibold border-b border-slate-200"
+                              class="px-4 py-3 text-left text-gray-800 font-semibold border-b border-slate-200"
                               rowspan="2"
                             >
                               Lower Limbs
                             </th>
                             <th
-                              class="px-4 py-3 text-left font-semibold border-b border-slate-200"
+                              class="px-4 py-3 text-left text-gray-800 font-semibold border-b border-slate-200"
                               rowspan="2"
                             >
                               Movements
                             </th>
                             <th
-                              class="px-4 py-3 text-center font-semibold border-b border-slate-200"
+                              class="px-4 py-3 text-center text-gray-800 font-semibold border-b border-slate-200"
                               colspan="2"
                             >
                               Strength
                             </th>
                             <th
-                              class="px-4 py-3 text-center font-semibold border-b border-slate-200"
+                              class="px-4 py-3 text-center text-gray-800 font-semibold border-b border-slate-200"
                               colspan="2"
                             >
                               PROM
                             </th>
                           </tr>
                           <tr
-                            class="second-row text-slate-600 bg-slate-50 text-xs"
+                            class="border-b border-slate-200 second-row text-slate-600 bg-slate-50 text-xs"
                           >
                             <td
                               class="px-4 pb-3 text-left font-medium border-b border-slate-200 uppercase"
@@ -1630,7 +2712,7 @@
                               <p class="prom-error hidden"></p>
                             </td>
                           </tr>
-                          <tr>
+                          <tr class="border-b border-slate-200">
                             <td class="px-4 py-4 text-slate-500">Adduction</td>
                             <td>
                               <input
@@ -1718,7 +2800,7 @@
                               <p class="prom-error hidden"></p>
                             </td>
                           </tr>
-                          <tr>
+                          <tr class="border-b-4 border-slate-200">
                             <td class="px-4 py-4 text-slate-500">Extension</td>
                             <td>
                               <input
@@ -1857,8 +2939,697 @@
                   </div>
                 </div>
               </div>
-              <!--mobile layout for upper limb loss of muscle power-->
-              <div data-layout="mobile" class="md:hidden"></div>
+              <!--mobile layout for lower limb loss of muscle power-->
+
+              <div data-layout="mobile" class="block md:hidden">
+                <div>
+                  <div
+                    class="bg-white border-l-4 border-[#F58220] p-6 rounded-r-xl shadow-sm mb-6"
+                  >
+                    <h3 class="text-xl font-bold text-gray-800">
+                      Lower Limb – Loss of Muscle Power
+                    </h3>
+                    <p class="text-sm text-gray-500 mt-1">Hip / Knee / Ankle</p>
+                  </div>
+                  <div class="flex gap-2">
+                    <div
+                      class="mt-0.5 h-9 w-9 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0"
+                    >
+                      <span class="text-orange-600 font-bold">i</span>
+                    </div>
+                    <div class="space-y-1">
+                      <h4 class="text-base font-semibold">
+                        Recording Rules regarding PROM
+                      </h4>
+                      <p class="text-sm text-slate-600">
+                        <span class="font-semibold text-slate-800"
+                          >No Deduction:</span
+                        >
+                        PROM normal / insignificant → grades 1–2 →
+                        <span class="font-semibold">0</span>.
+                        <br />
+                        <span class="font-semibold text-slate-800"
+                          >Deduction Required:</span
+                        >
+                        PROM limitation reduces muscle function → manual
+                        deduction + adjusted score.
+                      </p>
+                    </div>
+                  </div>
+                  <!--HİP-->
+                  <details
+                    class="bg-white border mt-10 rounded-lg shadow-2xl border-[#00AEEF]"
+                  >
+                    <summary
+                      class="flex justify-between rounded-lg border p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h2
+                        class="text-lg font-bold text-gray-700 uppercase tracking-wide"
+                      >
+                        Hip
+                      </h2>
+                      <div>
+                        <span class="group-open:rotate-180 text-[#F58220]">
+                          ▼</span
+                        >
+                      </div>
+                    </summary>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Flexion</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="hipFlexion_str_L"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="hipFlexion_str_R"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="hipFlexion_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="hipFlexion_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Extension</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="hipExtension_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="hipExtension_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="hipExtension_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="hipExtension_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                    <!--ABDUCTİON-->
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Abduction</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="hipAbduction_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="hipAbduction_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="hipAbduction_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="hipAbduction_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                    <!--ADDUCTION-->
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Adduction</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="hipAdduction_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="hipAdduction_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="hipAdduction_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="hipAdduction_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                  </details>
+                  <!--KNEE-->
+                  <details
+                    class="bg-white border mt-10 rounded-lg shadow-2xl border-[#00AEEF]"
+                  >
+                    <summary
+                      class="flex justify-between rounded-lg border p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h2
+                        class="text-lg font-bold text-gray-700 uppercase tracking-wide"
+                      >
+                        Knee
+                      </h2>
+                      <div>
+                        <span class="group-open:rotate-180 text-[#F58220]">
+                          ▼</span
+                        >
+                      </div>
+                    </summary>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Flexion</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="kneeFlexion_str_L"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="kneeFlexion_str_R"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="kneeFlexion_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="kneeFlexion_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Extension</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="kneeExtension_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="kneeExtension_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="kneeExtension_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="kneeExtension_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                  </details>
+                  <!--ANKLE-->
+                  <details
+                    class="bg-white border mt-10 rounded-lg shadow-2xl border-[#00AEEF]"
+                  >
+                    <summary
+                      class="flex justify-between rounded-lg border p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h2
+                        class="text-lg font-bold text-gray-700 uppercase tracking-wide"
+                      >
+                        Ankle
+                      </h2>
+                      <div>
+                        <span class="group-open:rotate-180 text-[#F58220]">
+                          ▼</span
+                        >
+                      </div>
+                    </summary>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">
+                        Dorsiflexion
+                      </h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="ankleDorsiflexion_str_L"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="ankleDorsiflexion_str_R"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="ankleDorsiflexion_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="ankleDorsiflexion_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 items-center justify-start p-2">
+                      <span
+                        class="text-[#F58220] font-bold transform transition-transform duration-200 group-open/item:rotate-90"
+                      >
+                        ▶
+                      </span>
+                      <h4 class="text-lg font-bold text-gray-800">Extension</h4>
+                    </div>
+                    <div class="space-y-4 p-4">
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="anklePlantarflexion_str_L"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >Strength-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          placeholder="0-5"
+                          name="anklePlantarflexion_str_R"
+                        />
+                        <p class="input-error hidden"></p>
+                      </div>
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Left</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="anklePlantarflexion_prom_L"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+
+                      <div>
+                        <label
+                          class="md:hidden text-[10px] font-bold text-gray-400"
+                          >PROM-Right</label
+                        >
+                        <input
+                          class="w-full p-3 bg-[#F58220]/5 border border-gray-200 rounded-xl text-center font-bold text-gray-700 focus:ring-2 focus:ring-[#F58220] focus:border-transparent outline-none transition-all placeholder:text-gray-300"
+                          type="number"
+                          name="anklePlantarflexion_prom_R"
+                        />
+                        <p class="input-error hidden"></p>
+                        <button
+                          type="button"
+                          class="prom-warning absolute right-2 ..."
+                          hidden
+                        >
+                          ⚠
+                        </button>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              </div>
 
               <!--calculate button and result cards for mobile layout and desktop
               layout-->
@@ -2363,7 +4134,6 @@
               disabled
               id="btnCompleted"
               hidden
-              onclick="nextStep3()"
             >
               Classification completed
             </button>
@@ -2547,14 +4317,14 @@
                 <button
                   class="bg-white text-gray-400 border border-gray-200 px-10 py-3 rounded-2xl font-bold uppercase text-[10px] tracking-widest hover:bg-gray-50 transition-all"
                   type="button"
-                  onclick="prevStep(2)"
+                  id="btnEditAssessment"
                 >
                   Edit Assessment
                 </button>
                 <button
                   class="mt-2 mb-2 p-6 rounded-4xl text-white font-bold w-full block md:col-span-2 transition-all duration-300 bg-[#F58220] hover:bg-[#D96F1C] disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
                   type="submit"
-                  onclick="finalize(event)"
+                  id="btnFinalize"
                 >
                   Save&Finalize the Classification
                 </button>

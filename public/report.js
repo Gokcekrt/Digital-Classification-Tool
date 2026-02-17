@@ -39,13 +39,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function startNewAssessment() {
   const confirmNewAthleteVar = document.getElementById("startNewAthlete");
+  confirmNewAthleteVar.style.display = "";
+  confirmNewAthleteVar.hidden = false;
   confirmNewAthleteVar.removeAttribute("hidden");
 }
 
 function closeModal() {
-  document.getElementById("startNewAthlete").style.display = "none";
+  const confirmNewAthleteVar = document.getElementById("startNewAthlete");
+  confirmNewAthleteVar.hidden = true;
+  confirmNewAthleteVar.setAttribute("hidden", "");
 }
 function confirmNewAthlete() {
   localStorage.removeItem("athleteReport");
+  sessionStorage.removeItem("draftSession");
   window.location.href = "index.html";
 }
